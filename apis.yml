@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: spacex-api:spacex-api
     name: SpaceX API
-    tags:
-      - API
+    tags: []
     humanURL: https://publicapis.io/space-x-api
     properties:
       - url: https://publicapis.io/space-x-api
