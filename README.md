@@ -1,42 +1,54 @@
-# SpaceX API (spacex-api)
-The SpaceX API is a web-based application programming interface that provides developers with access to real-time data and information about SpaceX missions, rockets, capsules, and other components of the company's space program. By using the API, developers can retrieve data on upcoming launches, historical mission details, launch manifest, and more. This data can be used to create applications, websites, and tools that can help users stay informed about SpaceX's activities and advancements in space exploration. The API allows for easy integration and customization, making it a valuable resource for both space enthusiasts and developers looking to innovate in the field of aerospace technology.
+# SpaceX API
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-search/spacex-api/refs/heads/main/apis.yml)
+The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions,
+rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink
+satellite constellation. It covers all past and upcoming launches with detailed mission data
+including booster reuse history, crew assignments, and real-time vessel positions.
+No authentication is required. Base URL: `https://api.spacexdata.com/v5`
 
-## Scope
+## Artifacts
 
-- **Type:** Index 
-- **Position:** Consumer 
-- **Access:** 3rd-Party 
+### OpenAPI Specs
 
-## Tags:
+- [SpaceX API OpenAPI](openapi/spacex-api-openapi.yml)
 
- - Space
+### Spectral Rules
 
-## Timestamps
+- [SpaceX API Rules](rules/spacex-api-rules.yml)
 
-- **Created:** 2024-11-07 
-- **Modified:** 2024-11-07 
+### Capabilities
 
-## APIs
+- [Mission Tracking](capabilities/mission-tracking.yaml) — End-to-end SpaceX mission tracking workflow
 
-### SpaceX API
-The International Space Station is moving at close to 28,000 km/h so its location changes really fast! Where is it right now? ISS astronauts, current location API. You get up to date information of current location, the pass time and current number of people traveling in the space.
+**Shared Definitions**
+- [SpaceX API](capabilities/shared/spacex-api.yaml)
 
-**Human URL:** [https://publicapis.io/space-x-api](https://publicapis.io/space-x-api)
+### JSON Schema
 
+- [Launch Schema](json-schema/spacex-api-launch-schema.json)
 
-#### Tags:
+### JSON Structure
 
- - API
+- [Launch Structure](json-structure/spacex-api-launch-structure.json)
 
-#### Properties
+### JSON-LD
 
-- [Documentation](https://publicapis.io/space-x-api)
+- [SpaceX API Context](json-ld/spacex-api-context.jsonld)
+
+### Examples
+
+- [Latest Launch Example](examples/spacex-api-list-launches-example.json)
+
+### Vocabulary
+
+- [SpaceX API Vocabulary](vocabulary/spacex-api-vocabulary.yml)
+
+## Links
+
+- [GitHub Repository](https://github.com/r-spacex/SpaceX-API)
+- [SpaceX Website](https://www.spacex.com)
 
 ## Maintainers
 
-**FN:** Kin Lane
-
-**Email:** info@apievangelist.com
-
+**FN:** Kin Lane  
+**Email:** kin@apievangelist.com

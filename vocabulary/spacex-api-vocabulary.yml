@@ -1,0 +1,118 @@
+vocabulary:
+  title: SpaceX API Vocabulary
+  description: >-
+    Domain vocabulary for the SpaceX API — an open-source REST API providing data on
+    SpaceX launches, rockets, capsules, cores, crew, launchpads, landing pads, payloads,
+    ships, and the Starlink satellite constellation.
+  version: "1.0.0"
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+terms:
+  - term: Launch
+    definition: >-
+      A SpaceX mission event including all metadata: the rocket used, launchpad, payload
+      manifest, crew assignments, booster core details, links to media, and the outcome
+      (success/failure). Identified by a sequential flight_number and MongoDB ObjectId.
+    tags:
+      - Core Concept
+
+  - term: Flight Number
+    definition: >-
+      A sequential integer assigned to each SpaceX launch in chronological order.
+      Not to be confused with the mission's id (MongoDB ObjectId).
+    tags:
+      - Metadata
+
+  - term: Core
+    definition: >-
+      A SpaceX first-stage booster unit. Cores are identified by serial numbers (e.g., B1061)
+      and tracked through multiple reuse flights. The API records RTLS (Return to Launch Site)
+      and ASDS (drone ship) landing attempts and successes per core.
+    tags:
+      - Vehicle
+      - Reusability
+
+  - term: ASDS (Autonomous Spaceport Drone Ship)
+    definition: >-
+      An uncrewed platform ship used by SpaceX to land Falcon 9 and Falcon Heavy booster
+      cores at sea when the trajectory does not allow return to the launch site.
+      Named vessels include Of Course I Still Love You and A Shortfall of Gravitas.
+    tags:
+      - Landing
+      - Fleet
+
+  - term: RTLS (Return to Launch Site)
+    definition: >-
+      A landing mode where the Falcon 9 booster flies back to land near the launch site
+      at Landing Zone 1 or Landing Zone 2 at Cape Canaveral, used for light-payload missions.
+    tags:
+      - Landing
+
+  - term: Capsule
+    definition: >-
+      A SpaceX Dragon spacecraft unit, identified by a serial number (e.g., C201).
+      Dragon capsules are reusable and tracked through multiple crew and cargo flights.
+    tags:
+      - Vehicle
+      - Reusability
+
+  - term: Launchpad
+    definition: >-
+      A SpaceX launch site, such as Kennedy Space Center LC-39A (KSC LC 39A) or
+      Cape Canaveral SLC-40. The API records launch attempts and successes per pad.
+    tags:
+      - Facility
+
+  - term: Landpad
+    definition: >-
+      A SpaceX landing target for booster recovery, including ground-based pads (RTLS)
+      and autonomous drone ships (ASDS). The API records landing attempts and successes.
+    tags:
+      - Facility
+
+  - term: Starlink
+    definition: >-
+      SpaceX's low-Earth-orbit satellite internet constellation. The API tracks individual
+      satellites with orbital parameters (TLE data) from Space-Track.org.
+    tags:
+      - Constellation
+      - Satellite
+
+  - term: date_precision
+    definition: >-
+      A field indicating how precise a launch date is. Values include hour, day, month,
+      quarter, year, and half (half-year). Upcoming launches often have lower precision
+      until the date is confirmed.
+    tags:
+      - Metadata
+
+  - term: Roadster
+    definition: >-
+      Elon Musk's personal Tesla Roadster, launched into a heliocentric orbit aboard
+      the first Falcon Heavy test flight in February 2018. The SpaceX API provides
+      real-time orbital tracking data including distance from Earth and Mars.
+    tags:
+      - Tracking
+
+  - term: net
+    definition: >-
+      "No Earlier Than" — a boolean flag indicating that a launch date is a minimum
+      boundary estimate rather than a confirmed time. Often used for early mission planning.
+    tags:
+      - Metadata
+
+  - term: tbd
+    definition: >-
+      "To Be Determined" — a boolean flag indicating launch date or other mission details
+      have not yet been confirmed.
+    tags:
+      - Metadata
+
+  - term: Payload
+    definition: >-
+      A SpaceX payload entry describing what was carried to orbit on a given mission,
+      including satellite constellations, ISS cargo, crew vehicles, and experimental payloads.
+      Includes customer, orbit, mass, and manufacturer details.
+    tags:
+      - Mission Data

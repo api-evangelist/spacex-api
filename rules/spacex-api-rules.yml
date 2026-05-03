@@ -1,0 +1,79 @@
+rules:
+  spacex-operation-summary-title-case:
+    description: All operation summaries must use Title Case
+    message: Operation summary "{{value}}" must use Title Case
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-z0-9-]*)(\\s[A-Z][a-z0-9-]*)*$"
+
+  spacex-operation-id-camel-case:
+    description: All operationIds must use camelCase
+    message: OperationId "{{value}}" must use camelCase
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  spacex-tags-title-case:
+    description: All tags must use Title Case
+    message: Tag "{{value}}" must use Title Case
+    severity: warn
+    given: "$.tags[*].name"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^([A-Z][a-z0-9-]*)(\\s[A-Z][a-z0-9-]*)*$"
+
+  spacex-resource-has-list-and-get:
+    description: Resource collections should expose both list and get-by-id operations
+    message: Path must have corresponding GET operations for collection and single item
+    severity: info
+    given: "$.paths[*]"
+    then:
+      field: get
+      function: truthy
+
+  spacex-response-must-have-description:
+    description: All responses must have a description
+    message: Response must have a description
+    severity: warn
+    given: "$.paths[*][*].responses[*]"
+    then:
+      field: description
+      function: truthy
+
+  spacex-schema-properties-have-descriptions:
+    description: Schema properties should have descriptions
+    message: Schema property "{{path}}" should have a description
+    severity: info
+    given: "$.components.schemas[*].properties[*]"
+    then:
+      field: description
+      function: truthy
+
+  spacex-servers-must-be-https:
+    description: All server URLs must use HTTPS
+    message: Server URL "{{value}}" must use HTTPS
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  spacex-path-parameters-must-be-id:
+    description: SpaceX API path parameters for entity lookup should be named id
+    message: Path parameter for resource lookup should be named id
+    severity: info
+    given: "$.paths[*].get.parameters[?(@.in=='path')]"
+    then:
+      field: name
+      function: enumeration
+      functionOptions:
+        values:
+          - id

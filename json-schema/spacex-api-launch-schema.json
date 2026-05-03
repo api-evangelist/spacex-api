@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json",
+  "title": "SpaceX Launch",
+  "description": "Schema for a SpaceX mission launch object from the SpaceX API v5",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Unique launch identifier (MongoDB ObjectId)",
+      "type": "string",
+      "example": "62dd70d5202306255024d139"
+    },
+    "name": {
+      "description": "Mission designation",
+      "type": "string",
+      "example": "Crew-5"
+    },
+    "flight_number": {
+      "description": "Sequential SpaceX flight number",
+      "type": "integer",
+      "example": 187
+    },
+    "date_utc": {
+      "description": "Launch date and time in UTC (ISO 8601)",
+      "type": "string",
+      "format": "date-time",
+      "example": "2022-10-05T16:00:00.000Z"
+    },
+    "date_unix": {
+      "description": "Launch date as Unix timestamp",
+      "type": "integer",
+      "example": 1664985600
+    },
+    "date_local": {
+      "description": "Launch date in local timezone",
+      "type": "string"
+    },
+    "date_precision": {
+      "description": "Precision of the launch date",
+      "type": "string",
+      "enum": ["half", "quarter", "year", "month", "day", "hour"]
+    },
+    "upcoming": {
+      "description": "Whether this is a future planned launch",
+      "type": "boolean"
+    },
+    "success": {
+      "description": "Whether the launch was successful (null if upcoming)",
+      "type": ["boolean", "null"]
+    },
+    "details": {
+      "description": "Mission description or notes",
+      "type": ["string", "null"]
+    },
+    "rocket": {
+      "description": "Rocket ID (reference to /rockets endpoint)",
+      "type": "string"
+    },
+    "launchpad": {
+      "description": "Launchpad ID (reference to /launchpads endpoint)",
+      "type": "string"
+    },
+    "payloads": {
+      "description": "Array of payload IDs",
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "capsules": {
+      "description": "Array of capsule IDs",
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "crew": {
+      "description": "Crew assignments with roles",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "crew": {"type": "string", "description": "Crew member ID"},
+          "role": {"type": "string", "description": "Role aboard the mission"}
+        }
+      }
+    },
+    "ships": {
+      "description": "Recovery ship IDs",
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "cores": {
+      "description": "First-stage booster core details",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "core": {"type": ["string", "null"], "description": "Core ID"},
+          "flight": {"type": ["integer", "null"], "description": "Flight number for this core"},
+          "gridfins": {"type": ["boolean", "null"], "description": "Grid fins used"},
+          "legs": {"type": ["boolean", "null"], "description": "Landing legs deployed"},
+          "reused": {"type": ["boolean", "null"], "description": "Previously flown core"},
+          "landing_attempt": {"type": ["boolean", "null"], "description": "Landing attempted"},
+          "landing_success": {"type": ["boolean", "null"], "description": "Landing succeeded"},
+          "landing_type": {"type": ["string", "null"], "description": "Landing type (ASDS, RTLS, Ocean)"},
+          "landpad": {"type": ["string", "null"], "description": "Landing pad ID"}
+        }
+      }
+    },
+    "failures": {
+      "description": "Failure records if launch was unsuccessful",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "time": {"type": "integer", "description": "Seconds from launch"},
+          "altitude": {"type": ["integer", "null"], "description": "Altitude in km at failure"},
+          "reason": {"type": "string", "description": "Failure cause description"}
+        }
+      }
+    },
+    "links": {
+      "description": "Media and reference links",
+      "type": "object",
+      "properties": {
+        "patch": {
+          "type": "object",
+          "properties": {
+            "small": {"type": ["string", "null"], "format": "uri"},
+            "large": {"type": ["string", "null"], "format": "uri"}
+          }
+        },
+        "webcast": {"type": ["string", "null"], "format": "uri"},
+        "youtube_id": {"type": ["string", "null"]},
+        "article": {"type": ["string", "null"], "format": "uri"},
+        "wikipedia": {"type": ["string", "null"], "format": "uri"}
+      }
+    },
+    "net": {
+      "description": "No Earlier Than flag — date is approximate",
+      "type": "boolean"
+    },
+    "tbd": {
+      "description": "To Be Determined — details are unconfirmed",
+      "type": "boolean"
+    },
+    "launch_library_id": {
+      "description": "Launch Library 2 reference UUID",
+      "type": ["string", "null"],
+      "format": "uuid"
+    },
+    "auto_update": {
+      "description": "Whether launch data auto-syncs from external sources",
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,288 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: SpaceX Mission Tracking
+  description: >-
+    Workflow capability for tracking SpaceX missions end-to-end — from upcoming launches
+    through vehicle reuse history. Combines launch data, rocket specs, crew assignments,
+    capsule and core reuse, payload manifests, launchpad and landing pad status, fleet
+    vessel locations, and Starlink constellation data.
+  tags:
+    - Space
+    - Aerospace
+    - Launches
+    - SpaceX
+    - Mission Tracking
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+capability:
+  consumes:
+    - import: spacex
+      location: ./shared/spacex-api.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: spacex-mission-api
+      description: Unified REST API for SpaceX mission tracking and fleet data.
+      resources:
+        - path: /v1/launches
+          name: launches
+          description: All SpaceX mission launches
+          operations:
+            - method: GET
+              name: list-launches
+              description: List all SpaceX launches (past and upcoming)
+              call: "spacex.list-launches"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/launches/latest
+          name: latest-launch
+          description: Most recent SpaceX launch
+          operations:
+            - method: GET
+              name: get-latest-launch
+              description: Get the most recent SpaceX launch
+              call: "spacex.get-latest-launch"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/launches/upcoming
+          name: upcoming-launches
+          description: Future scheduled SpaceX launches
+          operations:
+            - method: GET
+              name: list-upcoming-launches
+              description: List all upcoming SpaceX launches
+              call: "spacex.list-upcoming-launches"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/rockets
+          name: rockets
+          description: SpaceX rocket vehicle catalog
+          operations:
+            - method: GET
+              name: list-rockets
+              description: List all SpaceX rocket vehicles
+              call: "spacex.list-rockets"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/capsules
+          name: capsules
+          description: SpaceX Dragon capsule fleet with reuse history
+          operations:
+            - method: GET
+              name: list-capsules
+              description: List all Dragon capsules with reuse history
+              call: "spacex.list-capsules"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/cores
+          name: cores
+          description: SpaceX booster cores with landing history
+          operations:
+            - method: GET
+              name: list-cores
+              description: List all first-stage booster cores
+              call: "spacex.list-cores"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/crew
+          name: crew
+          description: SpaceX astronaut and crew roster
+          operations:
+            - method: GET
+              name: list-crew
+              description: List all SpaceX crew members
+              call: "spacex.list-crew"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/launchpads
+          name: launchpads
+          description: SpaceX launch sites
+          operations:
+            - method: GET
+              name: list-launchpads
+              description: List all SpaceX launch sites and their status
+              call: "spacex.list-launchpads"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/landing-pads
+          name: landing-pads
+          description: SpaceX landing pads and drone ships
+          operations:
+            - method: GET
+              name: list-landpads
+              description: List all SpaceX landing pads and drone ships
+              call: "spacex.list-landpads"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/payloads
+          name: payloads
+          description: SpaceX payload manifests
+          operations:
+            - method: GET
+              name: list-payloads
+              description: List all SpaceX payloads
+              call: "spacex.list-payloads"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/ships
+          name: ships
+          description: SpaceX fleet vessels
+          operations:
+            - method: GET
+              name: list-ships
+              description: List all SpaceX fleet vessels with real-time position
+              call: "spacex.list-ships"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/starlink
+          name: starlink
+          description: Starlink satellite constellation
+          operations:
+            - method: GET
+              name: list-starlink
+              description: List all Starlink satellites with orbital data
+              call: "spacex.list-starlink"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/roadster
+          name: roadster
+          description: Tesla Roadster orbital tracking
+          operations:
+            - method: GET
+              name: get-roadster
+              description: Get real-time Roadster orbital tracking data
+              call: "spacex.get-roadster"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: spacex-mission-mcp
+      transport: http
+      description: MCP server for AI-assisted SpaceX mission tracking and space data research.
+      tools:
+        - name: list-launches
+          description: List all SpaceX launches including past and upcoming missions with full metadata
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "spacex.list-launches"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-latest-launch
+          description: Get the most recent SpaceX launch with mission details and outcome
+          hints:
+            readOnly: true
+          call: "spacex.get-latest-launch"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-upcoming-launches
+          description: List all future scheduled SpaceX launches
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "spacex.list-upcoming-launches"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-rockets
+          description: List all SpaceX rocket vehicles (Falcon 9, Falcon Heavy, Starship) with specifications
+          hints:
+            readOnly: true
+          call: "spacex.list-rockets"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-capsules
+          description: List all Dragon capsules with serial numbers and reuse history
+          hints:
+            readOnly: true
+          call: "spacex.list-capsules"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-cores
+          description: List all first-stage booster cores with landing attempt and success history
+          hints:
+            readOnly: true
+          call: "spacex.list-cores"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-crew
+          description: List all SpaceX astronaut crew members with agency affiliations and launch history
+          hints:
+            readOnly: true
+          call: "spacex.list-crew"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-launchpads
+          description: List all SpaceX launch sites with location and launch statistics
+          hints:
+            readOnly: true
+          call: "spacex.list-launchpads"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-landing-pads
+          description: List all SpaceX landing pads and autonomous drone ships with success statistics
+          hints:
+            readOnly: true
+          call: "spacex.list-landpads"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-payloads
+          description: List all SpaceX payload manifests with customer, orbit, and mass data
+          hints:
+            readOnly: true
+          call: "spacex.list-payloads"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-ships
+          description: List all SpaceX fleet vessels including drone ships with real-time position data
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "spacex.list-ships"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-starlink-satellites
+          description: List all Starlink constellation satellites with orbital parameters
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "spacex.list-starlink"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-roadster-tracking
+          description: Get real-time orbital tracking data for Elon Musk's Tesla Roadster in space
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "spacex.get-roadster"
+          outputParameters:
+            - type: object
+              mapping: "$."

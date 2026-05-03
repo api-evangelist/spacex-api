@@ -1,0 +1,274 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: SpaceX API
+  description: >-
+    Open-source REST API providing comprehensive data on SpaceX launches, rockets,
+    capsules, cores, crew, launchpads, landing pads, payloads, ships, and Starlink
+    satellites. No authentication required. Base URL is https://api.spacexdata.com/v5.
+  tags:
+    - Space
+    - Aerospace
+    - Launches
+    - SpaceX
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+capability:
+  consumes:
+    - type: http
+      namespace: spacex
+      baseUri: https://api.spacexdata.com/v5
+      description: SpaceX API v5
+      resources:
+        - name: launches
+          path: /launches
+          description: SpaceX mission launch data
+          operations:
+            - name: list-launches
+              method: GET
+              description: List all SpaceX launches
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-latest-launch
+              method: GET
+              description: Get the most recent SpaceX launch
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-upcoming-launches
+              method: GET
+              description: List all upcoming SpaceX launches
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-past-launches
+              method: GET
+              description: List all past SpaceX launches
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-launch
+              method: GET
+              description: Get a single launch by ID
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Launch unique identifier
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: rockets
+          path: /rockets
+          description: SpaceX rocket vehicle data
+          operations:
+            - name: list-rockets
+              method: GET
+              description: List all SpaceX rockets
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-rocket
+              method: GET
+              description: Get a single rocket by ID
+              inputParameters:
+                - name: id
+                  in: path
+                  type: string
+                  required: true
+                  description: Rocket unique identifier
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: capsules
+          path: /capsules
+          description: SpaceX Dragon capsule data
+          operations:
+            - name: list-capsules
+              method: GET
+              description: List all SpaceX Dragon capsules with reuse history
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: cores
+          path: /cores
+          description: SpaceX booster core data
+          operations:
+            - name: list-cores
+              method: GET
+              description: List all SpaceX first-stage booster cores with landing history
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: crew
+          path: /crew
+          description: SpaceX astronaut crew data
+          operations:
+            - name: list-crew
+              method: GET
+              description: List all SpaceX crew members
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: launchpads
+          path: /launchpads
+          description: SpaceX launch site data
+          operations:
+            - name: list-launchpads
+              method: GET
+              description: List all SpaceX launch sites
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: landpads
+          path: /landpads
+          description: SpaceX landing pad data
+          operations:
+            - name: list-landpads
+              method: GET
+              description: List all SpaceX landing pads and drone ships
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: payloads
+          path: /payloads
+          description: SpaceX payload manifest data
+          operations:
+            - name: list-payloads
+              method: GET
+              description: List all SpaceX payloads
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: ships
+          path: /ships
+          description: SpaceX fleet vessel data
+          operations:
+            - name: list-ships
+              method: GET
+              description: List all SpaceX fleet vessels
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: starlink
+          path: /starlink
+          description: Starlink satellite constellation data
+          operations:
+            - name: list-starlink
+              method: GET
+              description: List all Starlink satellites with orbital data
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: roadster
+          path: /roadster
+          description: Tesla Roadster tracking data
+          operations:
+            - name: get-roadster
+              method: GET
+              description: Get real-time Roadster orbital tracking data
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: spacex-rest
+      resources:
+        - path: /v1/launches
+          name: launches
+          description: SpaceX launches
+          operations:
+            - method: GET
+              name: list-launches
+              description: List all SpaceX launches
+              call: "spacex.list-launches"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/rockets
+          name: rockets
+          description: SpaceX rockets
+          operations:
+            - method: GET
+              name: list-rockets
+              description: List all SpaceX rockets
+              call: "spacex.list-rockets"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: spacex-mcp
+      transport: http
+      tools:
+        - name: list-launches
+          description: List all SpaceX launches
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "spacex.list-launches"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-latest-launch
+          description: Get the most recent SpaceX launch
+          hints:
+            readOnly: true
+          call: "spacex.get-latest-launch"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-rockets
+          description: List all SpaceX rocket vehicles
+          hints:
+            readOnly: true
+          call: "spacex.list-rockets"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-crew
+          description: List all SpaceX astronaut crew members
+          hints:
+            readOnly: true
+          call: "spacex.list-crew"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,0 +1,83 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "spacex": "https://api.spacexdata.com/vocab/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Launch": "schema:Event",
+    "Rocket": "schema:Vehicle",
+    "Capsule": "schema:Vehicle",
+    "Core": "spacex:BoosterCore",
+    "CrewMember": "schema:Person",
+    "Launchpad": "schema:Place",
+    "Landpad": "schema:Place",
+    "Payload": "schema:Product",
+    "Ship": "schema:Vehicle",
+    "StarlinkSatellite": "schema:Vehicle",
+
+    "id": "@id",
+    "name": "schema:name",
+    "details": "schema:description",
+    "date_utc": {
+      "@id": "schema:startDate",
+      "@type": "xsd:dateTime"
+    },
+    "flight_number": "spacex:flightNumber",
+    "upcoming": {
+      "@id": "spacex:upcoming",
+      "@type": "xsd:boolean"
+    },
+    "success": {
+      "@id": "spacex:success",
+      "@type": "xsd:boolean"
+    },
+    "rocket": {
+      "@id": "spacex:rocket",
+      "@type": "@id"
+    },
+    "launchpad": {
+      "@id": "schema:location",
+      "@type": "@id"
+    },
+    "payloads": {
+      "@id": "spacex:payload",
+      "@type": "@id"
+    },
+    "crew": {
+      "@id": "schema:performer"
+    },
+    "cores": {
+      "@id": "spacex:boosterCore"
+    },
+    "links": {
+      "@id": "schema:associatedMedia"
+    },
+    "active": {
+      "@id": "schema:isRelatedTo"
+    },
+    "latitude": {
+      "@id": "schema:latitude",
+      "@type": "xsd:decimal"
+    },
+    "longitude": {
+      "@id": "schema:longitude",
+      "@type": "xsd:decimal"
+    },
+    "image": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "wikipedia": {
+      "@id": "schema:sameAs",
+      "@type": "@id"
+    },
+    "reuse_count": "spacex:reuseCount",
+    "landing_success": "spacex:landingSuccess",
+    "orbit": "spacex:targetOrbit",
+    "mass_kg": {
+      "@id": "schema:weight",
+      "@type": "xsd:decimal"
+    }
+  }
+}

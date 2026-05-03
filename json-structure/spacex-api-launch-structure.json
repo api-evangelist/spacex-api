@@ -1,0 +1,72 @@
+{
+  "title": "SpaceX Launch Structure",
+  "description": "JSON structure documentation for a SpaceX launch object from the SpaceX API v5",
+  "type": "object",
+  "fields": [
+    {"name": "id", "type": "string", "required": false, "description": "Unique launch identifier"},
+    {"name": "name", "type": "string", "required": false, "description": "Mission designation"},
+    {"name": "flight_number", "type": "integer", "required": false, "description": "Sequential SpaceX flight number"},
+    {"name": "date_utc", "type": "string", "format": "date-time", "required": false, "description": "Launch date/time in UTC"},
+    {"name": "date_unix", "type": "integer", "required": false, "description": "Launch date as Unix timestamp"},
+    {"name": "date_local", "type": "string", "required": false, "description": "Launch date in local timezone"},
+    {"name": "date_precision", "type": "string", "required": false, "description": "Date precision (half, quarter, year, month, day, hour)"},
+    {"name": "upcoming", "type": "boolean", "required": false, "description": "Future planned launch flag"},
+    {"name": "success", "type": "boolean", "required": false, "nullable": true, "description": "Whether launch succeeded"},
+    {"name": "details", "type": "string", "required": false, "nullable": true, "description": "Mission description"},
+    {"name": "rocket", "type": "string", "required": false, "description": "Rocket ID reference"},
+    {"name": "launchpad", "type": "string", "required": false, "description": "Launchpad ID reference"},
+    {"name": "payloads", "type": "array", "items": {"type": "string"}, "required": false, "description": "Payload ID references"},
+    {"name": "capsules", "type": "array", "items": {"type": "string"}, "required": false, "description": "Capsule ID references"},
+    {
+      "name": "crew",
+      "type": "array",
+      "required": false,
+      "description": "Crew assignments",
+      "items": {
+        "type": "object",
+        "fields": [
+          {"name": "crew", "type": "string", "description": "Crew member ID"},
+          {"name": "role", "type": "string", "description": "Role aboard mission"}
+        ]
+      }
+    },
+    {"name": "ships", "type": "array", "items": {"type": "string"}, "required": false, "description": "Recovery ship ID references"},
+    {
+      "name": "cores",
+      "type": "array",
+      "required": false,
+      "description": "First-stage booster details",
+      "items": {
+        "type": "object",
+        "fields": [
+          {"name": "core", "type": "string", "nullable": true, "description": "Core ID"},
+          {"name": "flight", "type": "integer", "nullable": true, "description": "Flight number for this core"},
+          {"name": "gridfins", "type": "boolean", "nullable": true, "description": "Grid fins used"},
+          {"name": "legs", "type": "boolean", "nullable": true, "description": "Landing legs deployed"},
+          {"name": "reused", "type": "boolean", "nullable": true, "description": "Previously flown core"},
+          {"name": "landing_attempt", "type": "boolean", "nullable": true, "description": "Landing attempted"},
+          {"name": "landing_success", "type": "boolean", "nullable": true, "description": "Landing succeeded"},
+          {"name": "landing_type", "type": "string", "nullable": true, "description": "ASDS, RTLS, or Ocean"},
+          {"name": "landpad", "type": "string", "nullable": true, "description": "Landing pad ID"}
+        ]
+      }
+    },
+    {
+      "name": "links",
+      "type": "object",
+      "required": false,
+      "description": "Media and reference links",
+      "fields": [
+        {"name": "patch", "type": "object", "description": "Mission patch images (small, large)"},
+        {"name": "webcast", "type": "string", "format": "uri", "nullable": true, "description": "Webcast URL"},
+        {"name": "youtube_id", "type": "string", "nullable": true, "description": "YouTube video ID"},
+        {"name": "article", "type": "string", "format": "uri", "nullable": true, "description": "News article link"},
+        {"name": "wikipedia", "type": "string", "format": "uri", "nullable": true, "description": "Wikipedia link"}
+      ]
+    },
+    {"name": "net", "type": "boolean", "required": false, "description": "No Earlier Than — date is approximate"},
+    {"name": "tbd", "type": "boolean", "required": false, "description": "To Be Determined flag"},
+    {"name": "launch_library_id", "type": "string", "format": "uuid", "required": false, "nullable": true, "description": "Launch Library 2 UUID"},
+    {"name": "auto_update", "type": "boolean", "required": false, "description": "Auto-sync from external sources"}
+  ]
+}
