@@ -1,0 +1,279 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SpaceX API — Launches
+  description: 'SpaceX API — Launches. 7 operations. Lead operation: List All Launches. Self-contained Naftiko capability
+    covering one Spacex Api business surface.'
+  tags:
+  - Spacex Api
+  - Launches
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPACEX_API_API_KEY: SPACEX_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: spacex-launches
+    baseUri: https://api.spacexdata.com/v5
+    description: SpaceX API — Launches business capability. Self-contained, no shared references.
+    resources:
+    - name: launches
+      path: /launches
+      operations:
+      - name: listlaunches
+        method: GET
+        description: List All Launches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: launches-latest
+      path: /launches/latest
+      operations:
+      - name: getlatestlaunch
+        method: GET
+        description: Get Latest Launch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: launches-next
+      path: /launches/next
+      operations:
+      - name: getnextlaunch
+        method: GET
+        description: Get Next Launch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: launches-past
+      path: /launches/past
+      operations:
+      - name: listpastlaunches
+        method: GET
+        description: List Past Launches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: launches-query
+      path: /launches/query
+      operations:
+      - name: querylaunches
+        method: POST
+        description: Query Launches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: launches-upcoming
+      path: /launches/upcoming
+      operations:
+      - name: listupcominglaunches
+        method: GET
+        description: List Upcoming Launches
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: launches-id
+      path: /launches/{id}
+      operations:
+      - name: getlaunch
+        method: GET
+        description: Get Launch
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Unique launch identifier
+          required: true
+  exposes:
+  - type: rest
+    namespace: spacex-launches-rest
+    port: 8080
+    description: REST adapter for SpaceX API — Launches. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/launches
+      name: launches
+      description: REST surface for launches.
+      operations:
+      - method: GET
+        name: listlaunches
+        description: List All Launches
+        call: spacex-launches.listlaunches
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/launches/latest
+      name: launches-latest
+      description: REST surface for launches-latest.
+      operations:
+      - method: GET
+        name: getlatestlaunch
+        description: Get Latest Launch
+        call: spacex-launches.getlatestlaunch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/launches/next
+      name: launches-next
+      description: REST surface for launches-next.
+      operations:
+      - method: GET
+        name: getnextlaunch
+        description: Get Next Launch
+        call: spacex-launches.getnextlaunch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/launches/past
+      name: launches-past
+      description: REST surface for launches-past.
+      operations:
+      - method: GET
+        name: listpastlaunches
+        description: List Past Launches
+        call: spacex-launches.listpastlaunches
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/launches/query
+      name: launches-query
+      description: REST surface for launches-query.
+      operations:
+      - method: POST
+        name: querylaunches
+        description: Query Launches
+        call: spacex-launches.querylaunches
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/launches/upcoming
+      name: launches-upcoming
+      description: REST surface for launches-upcoming.
+      operations:
+      - method: GET
+        name: listupcominglaunches
+        description: List Upcoming Launches
+        call: spacex-launches.listupcominglaunches
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/launches/{id}
+      name: launches-id
+      description: REST surface for launches-id.
+      operations:
+      - method: GET
+        name: getlaunch
+        description: Get Launch
+        call: spacex-launches.getlaunch
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: spacex-launches-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SpaceX API — Launches. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-all-launches
+      description: List All Launches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spacex-launches.listlaunches
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-latest-launch
+      description: Get Latest Launch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spacex-launches.getlatestlaunch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-next-launch
+      description: Get Next Launch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spacex-launches.getnextlaunch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-past-launches
+      description: List Past Launches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spacex-launches.listpastlaunches
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: query-launches
+      description: Query Launches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: spacex-launches.querylaunches
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-upcoming-launches
+      description: List Upcoming Launches
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spacex-launches.listupcominglaunches
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-launch
+      description: Get Launch
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spacex-launches.getlaunch
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

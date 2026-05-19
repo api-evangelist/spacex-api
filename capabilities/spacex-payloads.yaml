@@ -1,0 +1,109 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SpaceX API — Payloads
+  description: 'SpaceX API — Payloads. 2 operations. Lead operation: List All Payloads. Self-contained Naftiko capability
+    covering one Spacex Api business surface.'
+  tags:
+  - Spacex Api
+  - Payloads
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPACEX_API_API_KEY: SPACEX_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: spacex-payloads
+    baseUri: https://api.spacexdata.com/v5
+    description: SpaceX API — Payloads business capability. Self-contained, no shared references.
+    resources:
+    - name: payloads
+      path: /payloads
+      operations:
+      - name: listpayloads
+        method: GET
+        description: List All Payloads
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: payloads-id
+      path: /payloads/{id}
+      operations:
+      - name: getpayload
+        method: GET
+        description: Get Payload
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: id
+          in: path
+          type: string
+          description: Unique payload identifier
+          required: true
+  exposes:
+  - type: rest
+    namespace: spacex-payloads-rest
+    port: 8080
+    description: REST adapter for SpaceX API — Payloads. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/payloads
+      name: payloads
+      description: REST surface for payloads.
+      operations:
+      - method: GET
+        name: listpayloads
+        description: List All Payloads
+        call: spacex-payloads.listpayloads
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/payloads/{id}
+      name: payloads-id
+      description: REST surface for payloads-id.
+      operations:
+      - method: GET
+        name: getpayload
+        description: Get Payload
+        call: spacex-payloads.getpayload
+        with:
+          id: rest.id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: spacex-payloads-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SpaceX API — Payloads. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-all-payloads
+      description: List All Payloads
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spacex-payloads.listpayloads
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-payload
+      description: Get Payload
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spacex-payloads.getpayload
+      with:
+        id: tools.id
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SpaceX API — Roadster
+  description: 'SpaceX API — Roadster. 1 operations. Lead operation: Get Roadster. Self-contained Naftiko capability covering
+    one Spacex Api business surface.'
+  tags:
+  - Spacex Api
+  - Roadster
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SPACEX_API_API_KEY: SPACEX_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: spacex-roadster
+    baseUri: https://api.spacexdata.com/v5
+    description: SpaceX API — Roadster business capability. Self-contained, no shared references.
+    resources:
+    - name: roadster
+      path: /roadster
+      operations:
+      - name: getroadster
+        method: GET
+        description: Get Roadster
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: spacex-roadster-rest
+    port: 8080
+    description: REST adapter for SpaceX API — Roadster. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/roadster
+      name: roadster
+      description: REST surface for roadster.
+      operations:
+      - method: GET
+        name: getroadster
+        description: Get Roadster
+        call: spacex-roadster.getroadster
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: spacex-roadster-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SpaceX API — Roadster. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-roadster
+      description: Get Roadster
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spacex-roadster.getroadster
+      outputParameters:
+      - type: object
+        mapping: $.
