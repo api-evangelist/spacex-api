@@ -1,0 +1,468 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Launches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches"
+          },
+          "docs": "Returns all SpaceX launches including past and upcoming missions"
+        },
+        {
+          "info": {
+            "name": "Get Latest Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/latest"
+          },
+          "docs": "Returns the most recent SpaceX launch"
+        },
+        {
+          "info": {
+            "name": "Get Next Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/next"
+          },
+          "docs": "Returns the next scheduled SpaceX launch"
+        },
+        {
+          "info": {
+            "name": "List Upcoming Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/upcoming"
+          },
+          "docs": "Returns all future scheduled SpaceX launches"
+        },
+        {
+          "info": {
+            "name": "List Past Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/past"
+          },
+          "docs": "Returns all past SpaceX launches"
+        },
+        {
+          "info": {
+            "name": "Get Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique launch identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single SpaceX launch by its unique ID"
+        },
+        {
+          "info": {
+            "name": "Query Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v5/launches/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query launches with MongoDB-style filters, pagination, and field population"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rockets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Rockets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/rockets"
+          },
+          "docs": "Returns all SpaceX rocket vehicles"
+        },
+        {
+          "info": {
+            "name": "Get Rocket",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/rockets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique rocket identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single SpaceX rocket by its unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Capsules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Capsules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/capsules"
+          },
+          "docs": "Returns all SpaceX Dragon capsule units with reuse history"
+        },
+        {
+          "info": {
+            "name": "Get Capsule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/capsules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique capsule identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single SpaceX capsule by its unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Cores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/cores"
+          },
+          "docs": "Returns all SpaceX first-stage booster core units with landing history"
+        },
+        {
+          "info": {
+            "name": "Get Core",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/cores/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique core identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single SpaceX booster core by its unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Crew",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Crew",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/crew"
+          },
+          "docs": "Returns all SpaceX astronauts and crew members"
+        },
+        {
+          "info": {
+            "name": "Get Crew Member",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/crew/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique crew member identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single crew member by their unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Launchpads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Launchpads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launchpads"
+          },
+          "docs": "Returns all SpaceX launch sites and their current operational status"
+        },
+        {
+          "info": {
+            "name": "Get Launchpad",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launchpads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique launchpad identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single launchpad by its unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Landing Pads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Landing Pads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/landpads"
+          },
+          "docs": "Returns all SpaceX landing pads including ASDS drone ships and ground pads"
+        },
+        {
+          "info": {
+            "name": "Get Landing Pad",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/landpads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique landing pad identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single landing pad by its unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Payloads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Payloads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/payloads"
+          },
+          "docs": "Returns all SpaceX payload manifests including satellites, cargo, and crew vehicles"
+        },
+        {
+          "info": {
+            "name": "Get Payload",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/payloads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique payload identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single payload by its unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ships",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Ships",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/ships"
+          },
+          "docs": "Returns all SpaceX fleet vessels including drone ships, fairing recovery vessels, and crew ships"
+        },
+        {
+          "info": {
+            "name": "Get Ship",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/ships/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique ship identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single ship by its unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Starlink",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Starlink Satellites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/starlink"
+          },
+          "docs": "Returns all Starlink satellite constellation data including orbital parameters"
+        },
+        {
+          "info": {
+            "name": "Get Starlink Satellite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/starlink/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique Starlink satellite identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single Starlink satellite by its unique ID"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Roadster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Roadster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/roadster"
+          },
+          "docs": "Returns real-time tracking data for Elon Musk's Tesla Roadster launched aboard Falcon Heavy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
