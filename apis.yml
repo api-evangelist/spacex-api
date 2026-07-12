@@ -48,6 +48,10 @@ apis:
           https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
         type: Vocabulary
 common:
+  - type: VulnerabilityDisclosure
+    url: security/spacex-api-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/spacex-api-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/spacex
   - type: Website
