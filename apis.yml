@@ -48,6 +48,8 @@ apis:
           https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
         type: Vocabulary
 common:
+  - type: AgenticAccess
+    url: agentic-access/spacex-api-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/spacex-api-vulnerability-disclosure.yml
   - type: DomainSecurity
