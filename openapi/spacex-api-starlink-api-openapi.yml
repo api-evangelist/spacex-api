@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: SpaceX Capsules Starlink API
+  description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
+  version: 5.0.0
+  contact:
+    name: SpaceX API Community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.spacexdata.com/v5
+  description: SpaceX API v5 production server
+tags:
+- name: Starlink
+  description: SpaceX Starlink satellite data
+paths:
+  /starlink:
+    get:
+      operationId: listStarlink
+      summary: List All Starlink Satellites
+      description: Returns all Starlink satellite constellation data including orbital parameters
+      tags:
+      - Starlink
+      responses:
+        '200':
+          description: Array of Starlink satellite objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StarlinkSatellite'
+  /starlink/{id}:
+    get:
+      operationId: getStarlinkSatellite
+      summary: Get Starlink Satellite
+      description: Returns a single Starlink satellite by its unique ID
+      tags:
+      - Starlink
+      parameters:
+      - name: id
+        in: path
+        description: Unique Starlink satellite identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Starlink satellite object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StarlinkSatellite'
+components:
+  schemas:
+    StarlinkSatellite:
+      type: object
+      description: A SpaceX Starlink constellation satellite
+      properties:
+        id:
+          type: string
+          description: Unique Starlink satellite identifier
+        version:
+          type: string
+          description: Starlink satellite version (v0.9, v1.0, v1.5, v2.0)
+        launch:
+          type: string
+          nullable: true
+          description: Launch ID this satellite was deployed on
+        spaceTrack:
+          type: object
+          description: Space-Track.org TLE and orbital data
+          additionalProperties: true
+externalDocs:
+  description: SpaceX API GitHub Repository
+  url: https://github.com/r-spacex/SpaceX-API

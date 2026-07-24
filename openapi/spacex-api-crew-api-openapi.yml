@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: SpaceX Capsules Crew API
+  description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
+  version: 5.0.0
+  contact:
+    name: SpaceX API Community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.spacexdata.com/v5
+  description: SpaceX API v5 production server
+tags:
+- name: Crew
+  description: SpaceX astronaut crew data
+paths:
+  /crew:
+    get:
+      operationId: listCrew
+      summary: List All Crew
+      description: Returns all SpaceX astronauts and crew members
+      tags:
+      - Crew
+      responses:
+        '200':
+          description: Array of crew member objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CrewMember'
+  /crew/{id}:
+    get:
+      operationId: getCrewMember
+      summary: Get Crew Member
+      description: Returns a single crew member by their unique ID
+      tags:
+      - Crew
+      parameters:
+      - name: id
+        in: path
+        description: Unique crew member identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Crew member object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CrewMember'
+components:
+  schemas:
+    CrewMember:
+      type: object
+      description: A SpaceX astronaut or crew member
+      properties:
+        id:
+          type: string
+          description: Unique crew member identifier
+        name:
+          type: string
+          description: Full name of the crew member
+        status:
+          type: string
+          description: Status (active, retired, unknown)
+        agency:
+          type: string
+          description: Space agency affiliation
+        image:
+          type: string
+          format: uri
+          description: Portrait image URL
+        wikipedia:
+          type: string
+          format: uri
+          description: Wikipedia profile link
+        launches:
+          type: array
+          description: Launch IDs the crew member participated in
+          items:
+            type: string
+externalDocs:
+  description: SpaceX API GitHub Repository
+  url: https://github.com/r-spacex/SpaceX-API

@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: SpaceX Capsules Payloads API
+  description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
+  version: 5.0.0
+  contact:
+    name: SpaceX API Community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.spacexdata.com/v5
+  description: SpaceX API v5 production server
+tags:
+- name: Payloads
+  description: SpaceX payload data
+paths:
+  /payloads:
+    get:
+      operationId: listPayloads
+      summary: List All Payloads
+      description: Returns all SpaceX payload manifests including satellites, cargo, and crew vehicles
+      tags:
+      - Payloads
+      responses:
+        '200':
+          description: Array of payload objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Payload'
+  /payloads/{id}:
+    get:
+      operationId: getPayload
+      summary: Get Payload
+      description: Returns a single payload by its unique ID
+      tags:
+      - Payloads
+      parameters:
+      - name: id
+        in: path
+        description: Unique payload identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Payload object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payload'
+components:
+  schemas:
+    Payload:
+      type: object
+      description: A SpaceX payload manifest entry
+      properties:
+        id:
+          type: string
+          description: Unique payload identifier
+        name:
+          type: string
+          description: Payload name or designation
+        type:
+          type: string
+          description: Payload type (Satellite, Dragon Boilerplate, Crew Dragon, etc.)
+        reused:
+          type: boolean
+          description: Whether this payload has flown before
+        launch:
+          type: string
+          description: Launch ID this payload flew on
+        customers:
+          type: array
+          description: Customer organizations
+          items:
+            type: string
+        nationalities:
+          type: array
+          description: Customer nationalities
+          items:
+            type: string
+        manufacturers:
+          type: array
+          description: Payload manufacturers
+          items:
+            type: string
+        mass_kg:
+          type: number
+          nullable: true
+          description: Payload mass in kilograms
+        mass_lbs:
+          type: number
+          nullable: true
+          description: Payload mass in pounds
+        orbit:
+          type: string
+          nullable: true
+          description: Target orbit (LEO, GTO, ISS, SSO, etc.)
+        reference_system:
+          type: string
+          nullable: true
+          description: Orbital reference system
+        regime:
+          type: string
+          nullable: true
+          description: Orbital regime
+externalDocs:
+  description: SpaceX API GitHub Repository
+  url: https://github.com/r-spacex/SpaceX-API

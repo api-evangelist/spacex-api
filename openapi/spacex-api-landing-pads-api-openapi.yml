@@ -1,0 +1,106 @@
+openapi: 3.0.3
+info:
+  title: SpaceX Capsules Landing Pads API
+  description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
+  version: 5.0.0
+  contact:
+    name: SpaceX API Community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.spacexdata.com/v5
+  description: SpaceX API v5 production server
+tags:
+- name: Landing Pads
+  description: SpaceX landing pad data
+paths:
+  /landpads:
+    get:
+      operationId: listLandpads
+      summary: List All Landing Pads
+      description: Returns all SpaceX landing pads including ASDS drone ships and ground pads
+      tags:
+      - Landing Pads
+      responses:
+        '200':
+          description: Array of landing pad objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Landpad'
+  /landpads/{id}:
+    get:
+      operationId: getLandpad
+      summary: Get Landing Pad
+      description: Returns a single landing pad by its unique ID
+      tags:
+      - Landing Pads
+      parameters:
+      - name: id
+        in: path
+        description: Unique landing pad identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Landing pad object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Landpad'
+components:
+  schemas:
+    Landpad:
+      type: object
+      description: A SpaceX landing pad or drone ship
+      properties:
+        id:
+          type: string
+          description: Unique landing pad identifier
+        name:
+          type: string
+          description: Landing pad name (e.g., Of Course I Still Love You)
+        full_name:
+          type: string
+          description: Full landing pad name
+        status:
+          type: string
+          description: Operational status
+        type:
+          type: string
+          description: Pad type (RTLS, ASDS)
+        locality:
+          type: string
+          description: Location city or locality
+        region:
+          type: string
+          description: Location state or region
+        latitude:
+          type: number
+          description: Geographic latitude
+        longitude:
+          type: number
+          description: Geographic longitude
+        landing_attempts:
+          type: integer
+          description: Total landing attempts at this pad
+        landing_successes:
+          type: integer
+          description: Successful landings at this pad
+        wikipedia:
+          type: string
+          format: uri
+          description: Wikipedia article link
+        launches:
+          type: array
+          description: Launch IDs that used this landing pad
+          items:
+            type: string
+externalDocs:
+  description: SpaceX API GitHub Repository
+  url: https://github.com/r-spacex/SpaceX-API

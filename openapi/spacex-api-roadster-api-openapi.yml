@@ -1,0 +1,100 @@
+openapi: 3.0.3
+info:
+  title: SpaceX Capsules Roadster API
+  description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
+  version: 5.0.0
+  contact:
+    name: SpaceX API Community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.spacexdata.com/v5
+  description: SpaceX API v5 production server
+tags:
+- name: Roadster
+  description: SpaceX Roadster tracking data
+paths:
+  /roadster:
+    get:
+      operationId: getRoadster
+      summary: Get Roadster
+      description: Returns real-time tracking data for Elon Musk's Tesla Roadster launched aboard Falcon Heavy
+      tags:
+      - Roadster
+      responses:
+        '200':
+          description: Roadster tracking object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Roadster'
+components:
+  schemas:
+    Roadster:
+      type: object
+      description: Tracking data for Elon Musk's Tesla Roadster launched on Falcon Heavy
+      properties:
+        id:
+          type: string
+          description: Roadster identifier
+        name:
+          type: string
+          description: Object designation
+        launch_date_utc:
+          type: string
+          format: date-time
+          description: Launch date in UTC
+        launch_date_unix:
+          type: integer
+          description: Launch date as Unix timestamp
+        launch_mass_kg:
+          type: number
+          description: Launch mass in kilograms
+        norad_id:
+          type: integer
+          description: NORAD catalog number
+        epoch_jd:
+          type: number
+          description: Epoch as Julian date
+        orbit_type:
+          type: string
+          description: Orbital type designation
+        apoapsis_au:
+          type: number
+          description: Apoapsis in astronomical units
+        periapsis_au:
+          type: number
+          description: Periapsis in astronomical units
+        semi_major_axis_au:
+          type: number
+          description: Semi-major axis in astronomical units
+        eccentricity:
+          type: number
+          description: Orbital eccentricity
+        inclination:
+          type: number
+          description: Orbital inclination in degrees
+        speed_kph:
+          type: number
+          description: Current speed in km/h
+        speed_mph:
+          type: number
+          description: Current speed in mph
+        earth_distance_km:
+          type: number
+          description: Current distance from Earth in km
+        mars_distance_km:
+          type: number
+          description: Current distance from Mars in km
+        wikipedia:
+          type: string
+          format: uri
+          description: Wikipedia article link
+        details:
+          type: string
+          description: Mission description
+externalDocs:
+  description: SpaceX API GitHub Repository
+  url: https://github.com/r-spacex/SpaceX-API

@@ -1,0 +1,97 @@
+openapi: 3.0.3
+info:
+  title: SpaceX Capsules API
+  description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
+  version: 5.0.0
+  contact:
+    name: SpaceX API Community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.spacexdata.com/v5
+  description: SpaceX API v5 production server
+tags:
+- name: Capsules
+  description: SpaceX Dragon capsule data
+paths:
+  /capsules:
+    get:
+      operationId: listCapsules
+      summary: List All Capsules
+      description: Returns all SpaceX Dragon capsule units with reuse history
+      tags:
+      - Capsules
+      responses:
+        '200':
+          description: Array of capsule objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Capsule'
+  /capsules/{id}:
+    get:
+      operationId: getCapsule
+      summary: Get Capsule
+      description: Returns a single SpaceX capsule by its unique ID
+      tags:
+      - Capsules
+      parameters:
+      - name: id
+        in: path
+        description: Unique capsule identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Capsule object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Capsule'
+components:
+  schemas:
+    Capsule:
+      type: object
+      description: A SpaceX Dragon capsule unit
+      properties:
+        id:
+          type: string
+          description: Unique capsule identifier
+        serial:
+          type: string
+          description: Capsule serial number (e.g., C201)
+        status:
+          type: string
+          description: Current capsule status (active, retired, destroyed)
+        type:
+          type: string
+          description: Capsule type (Dragon 1.0, Dragon 1.1, Dragon 2)
+        dragon:
+          type: string
+          description: Dragon variant ID
+        reuse_count:
+          type: integer
+          description: Number of times capsule has been reused
+        water_landings:
+          type: integer
+          description: Number of water landings
+        land_landings:
+          type: integer
+          description: Number of land landings
+        last_update:
+          type: string
+          nullable: true
+          description: Most recent status note
+        launches:
+          type: array
+          description: List of launch IDs this capsule participated in
+          items:
+            type: string
+externalDocs:
+  description: SpaceX API GitHub Repository
+  url: https://github.com/r-spacex/SpaceX-API

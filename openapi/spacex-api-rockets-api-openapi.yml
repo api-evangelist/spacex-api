@@ -1,0 +1,99 @@
+openapi: 3.0.3
+info:
+  title: SpaceX Capsules Rockets API
+  description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
+  version: 5.0.0
+  contact:
+    name: SpaceX API Community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.spacexdata.com/v5
+  description: SpaceX API v5 production server
+tags:
+- name: Rockets
+  description: SpaceX rocket vehicle data
+paths:
+  /rockets:
+    get:
+      operationId: listRockets
+      summary: List All Rockets
+      description: Returns all SpaceX rocket vehicles
+      tags:
+      - Rockets
+      responses:
+        '200':
+          description: Array of rocket objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rocket'
+  /rockets/{id}:
+    get:
+      operationId: getRocket
+      summary: Get Rocket
+      description: Returns a single SpaceX rocket by its unique ID
+      tags:
+      - Rockets
+      parameters:
+      - name: id
+        in: path
+        description: Unique rocket identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Rocket object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rocket'
+        '404':
+          description: Rocket not found
+components:
+  schemas:
+    Rocket:
+      type: object
+      description: A SpaceX rocket vehicle
+      properties:
+        id:
+          type: string
+          description: Unique rocket identifier
+        name:
+          type: string
+          description: Rocket name (e.g., Falcon 9, Falcon Heavy, Starship)
+        description:
+          type: string
+          description: Rocket description
+        active:
+          type: boolean
+          description: Whether the rocket is currently in service
+        stages:
+          type: integer
+          description: Number of stages
+        boosters:
+          type: integer
+          description: Number of boosters
+        cost_per_launch:
+          type: integer
+          description: Typical cost per launch in USD
+        success_rate_pct:
+          type: integer
+          description: Historical success rate as a percentage
+        first_flight:
+          type: string
+          description: Date of first flight
+        country:
+          type: string
+          description: Country of manufacture
+        company:
+          type: string
+          description: Manufacturing company
+externalDocs:
+  description: SpaceX API GitHub Repository
+  url: https://github.com/r-spacex/SpaceX-API

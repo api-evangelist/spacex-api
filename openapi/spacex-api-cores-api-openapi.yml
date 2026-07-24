@@ -1,0 +1,97 @@
+openapi: 3.0.3
+info:
+  title: SpaceX Capsules Cores API
+  description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
+  version: 5.0.0
+  contact:
+    name: SpaceX API Community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://api.spacexdata.com/v5
+  description: SpaceX API v5 production server
+tags:
+- name: Cores
+  description: SpaceX first stage booster core data
+paths:
+  /cores:
+    get:
+      operationId: listCores
+      summary: List All Cores
+      description: Returns all SpaceX first-stage booster core units with landing history
+      tags:
+      - Cores
+      responses:
+        '200':
+          description: Array of core objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Core'
+  /cores/{id}:
+    get:
+      operationId: getCore
+      summary: Get Core
+      description: Returns a single SpaceX booster core by its unique ID
+      tags:
+      - Cores
+      parameters:
+      - name: id
+        in: path
+        description: Unique core identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Core object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Core'
+components:
+  schemas:
+    Core:
+      type: object
+      description: A SpaceX first-stage booster core
+      properties:
+        id:
+          type: string
+          description: Unique core identifier
+        serial:
+          type: string
+          description: Core serial number (e.g., B1061)
+        status:
+          type: string
+          description: Core status (active, expended, retired, lost, unknown)
+        reuse_count:
+          type: integer
+          description: Number of times this core has been reused
+        rtls_attempts:
+          type: integer
+          description: Return to launch site landing attempts
+        rtls_landings:
+          type: integer
+          description: Successful RTLS landings
+        asds_attempts:
+          type: integer
+          description: Autonomous spaceport drone ship landing attempts
+        asds_landings:
+          type: integer
+          description: Successful ASDS landings
+        last_update:
+          type: string
+          nullable: true
+          description: Most recent status note
+        launches:
+          type: array
+          description: Launch IDs this core flew on
+          items:
+            type: string
+externalDocs:
+  description: SpaceX API GitHub Repository
+  url: https://github.com/r-spacex/SpaceX-API
