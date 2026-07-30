@@ -6,7 +6,19 @@ description: >-
   cores, crew, launchpads, landing pads, payloads, and the Starlink satellite constellation. It offers endpoints for all
   past and upcoming launches, real-time mission data, and vehicle telemetry. No authentication is required.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Freemium · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/spacex-api.png
 tags:
   - Space
   - Aerospace
@@ -16,37 +28,303 @@ created: '2024-11-07'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: spacex-api:spacex-api
-    name: SpaceX API
-    description: >-
-      Open-source REST API providing data on SpaceX launches, rockets, capsules, cores, crew, launchpads, landing pads,
-      payloads, ships, and Starlink satellites. Supports query, pagination, and population of linked entity IDs. No
-      authentication required.
-    humanURL: https://github.com/r-spacex/SpaceX-API
-    baseURL: https://api.spacexdata.com/v5
-    tags:
-      - Space
-      - Aerospace
-      - Launches
-      - SpaceX
-    properties:
-      - url: https://github.com/r-spacex/SpaceX-API
-        type: GitHubRepository
-      - url: https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/openapi/spacex-api-openapi.yml
-        type: OpenAPI
-      - url: https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
-        type: SpectralRules
-      - url: >-
-          https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
-        type: JSONSchema
-      - url: >-
-          https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
-        type: JSONStructure
-      - url: https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
-        type: JSONLDContext
-      - url: >-
-          https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
-        type: Vocabulary
+- aid: spacex-api:spacex-api-capsules-api
+  name: SpaceX API Capsules API
+  description: SpaceX Dragon capsule data
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com/v5
+  tags:
+  - Capsules
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-api-capsules-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
+- aid: spacex-api:spacex-api-cores-api
+  name: SpaceX API Cores API
+  description: SpaceX first stage booster core data
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com/v5
+  tags:
+  - Cores
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-api-cores-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
+- aid: spacex-api:spacex-api-crew-api
+  name: SpaceX API Crew API
+  description: SpaceX astronaut crew data
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com/v5
+  tags:
+  - Crew
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-api-crew-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
+- aid: spacex-api:spacex-api-landing-pads-api
+  name: SpaceX API Landing Pads API
+  description: SpaceX landing pad data
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com/v5
+  tags:
+  - Landing Pads
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-api-landing-pads-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
+- aid: spacex-api:spacex-api-launches-api
+  name: SpaceX API Launches API
+  description: SpaceX mission launch data
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com/v5
+  tags:
+  - Launches
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-api-launches-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
+- aid: spacex-api:spacex-api-launchpads-api
+  name: SpaceX API Launchpads API
+  description: SpaceX launch site data
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com/v5
+  tags:
+  - Launchpads
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-api-launchpads-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
+- aid: spacex-api:spacex-api-payloads-api
+  name: SpaceX API Payloads API
+  description: SpaceX payload data
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com/v5
+  tags:
+  - Payloads
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-api-payloads-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
+- aid: spacex-api:spacex-api-roadster-api
+  name: SpaceX API Roadster API
+  description: SpaceX Roadster tracking data
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com/v5
+  tags:
+  - Roadster
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-api-roadster-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
+- aid: spacex-api:spacex-api-rockets-api
+  name: SpaceX API Rockets API
+  description: SpaceX rocket vehicle data
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com/v5
+  tags:
+  - Rockets
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-api-rockets-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
+- aid: spacex-api:spacex-api-ships-api
+  name: SpaceX API Ships API
+  description: SpaceX fleet ship data
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com/v5
+  tags:
+  - Ships
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-api-ships-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
+- aid: spacex-api:spacex-api-starlink-api
+  name: SpaceX API Starlink API
+  description: SpaceX Starlink satellite data
+  humanURL: https://github.com/r-spacex/SpaceX-API
+  baseURL: https://api.spacexdata.com/v5
+  tags:
+  - Starlink
+  properties:
+  - type: OpenAPI
+    url: openapi/spacex-api-starlink-api-openapi.yml
+  - type: GitHubRepository
+    url: https://github.com/r-spacex/SpaceX-API
+  - type: SpectralRules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json
+  - type: JSONStructure
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
 common:
   - type: AgenticAccess
     url: agentic-access/spacex-api-agentic-access.yml
