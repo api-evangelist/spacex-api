@@ -1,0 +1,34 @@
+{
+  "provider": "spacex-api",
+  "sources": [
+    "spacex-api-capsules-api-openapi.yml",
+    "spacex-api-cores-api-openapi.yml",
+    "spacex-api-crew-api-openapi.yml",
+    "spacex-api-landing-pads-api-openapi.yml",
+    "spacex-api-launches-api-openapi.yml",
+    "spacex-api-launchpads-api-openapi.yml",
+    "spacex-api-payloads-api-openapi.yml",
+    "spacex-api-roadster-api-openapi.yml",
+    "spacex-api-rockets-api-openapi.yml",
+    "spacex-api-ships-api-openapi.yml",
+    "spacex-api-starlink-api-openapi.yml"
+  ],
+  "outputs": [
+    "spacex-api-capsules-api-openapi.yml",
+    "spacex-api-cores-api-openapi.yml",
+    "spacex-api-crew-api-openapi.yml",
+    "spacex-api-landing-pads-api-openapi.yml",
+    "spacex-api-launches-api-openapi.yml",
+    "spacex-api-launchpads-api-openapi.yml",
+    "spacex-api-payloads-api-openapi.yml",
+    "spacex-api-roadster-api-openapi.yml",
+    "spacex-api-rockets-api-openapi.yml",
+    "spacex-api-ships-api-openapi.yml",
+    "spacex-api-starlink-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

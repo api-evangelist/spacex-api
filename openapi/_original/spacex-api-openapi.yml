@@ -1,0 +1,1314 @@
+openapi: 3.0.3
+info:
+  title: SpaceX API
+  description: >-
+    The SpaceX API is an open-source REST API providing comprehensive data about SpaceX
+    missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships,
+    and the Starlink satellite constellation. It covers all past and upcoming launches
+    with detailed mission data. No authentication is required.
+  version: "5.0.0"
+  contact:
+    name: SpaceX API Community
+    url: https://github.com/r-spacex/SpaceX-API
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+externalDocs:
+  description: SpaceX API GitHub Repository
+  url: https://github.com/r-spacex/SpaceX-API
+servers:
+  - url: https://api.spacexdata.com/v5
+    description: SpaceX API v5 production server
+tags:
+  - name: Launches
+    description: SpaceX mission launch data
+  - name: Rockets
+    description: SpaceX rocket vehicle data
+  - name: Capsules
+    description: SpaceX Dragon capsule data
+  - name: Cores
+    description: SpaceX first stage booster core data
+  - name: Crew
+    description: SpaceX astronaut crew data
+  - name: Launchpads
+    description: SpaceX launch site data
+  - name: Landing Pads
+    description: SpaceX landing pad data
+  - name: Payloads
+    description: SpaceX payload data
+  - name: Ships
+    description: SpaceX fleet ship data
+  - name: Starlink
+    description: SpaceX Starlink satellite data
+  - name: Roadster
+    description: SpaceX Roadster tracking data
+paths:
+  /launches:
+    get:
+      operationId: listLaunches
+      summary: List All Launches
+      description: Returns all SpaceX launches including past and upcoming missions
+      tags:
+        - Launches
+      responses:
+        '200':
+          description: Array of launch objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Launch'
+  /launches/latest:
+    get:
+      operationId: getLatestLaunch
+      summary: Get Latest Launch
+      description: Returns the most recent SpaceX launch
+      tags:
+        - Launches
+      responses:
+        '200':
+          description: Most recent launch object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Launch'
+  /launches/next:
+    get:
+      operationId: getNextLaunch
+      summary: Get Next Launch
+      description: Returns the next scheduled SpaceX launch
+      tags:
+        - Launches
+      responses:
+        '200':
+          description: Next scheduled launch object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Launch'
+  /launches/upcoming:
+    get:
+      operationId: listUpcomingLaunches
+      summary: List Upcoming Launches
+      description: Returns all future scheduled SpaceX launches
+      tags:
+        - Launches
+      responses:
+        '200':
+          description: Array of upcoming launch objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Launch'
+  /launches/past:
+    get:
+      operationId: listPastLaunches
+      summary: List Past Launches
+      description: Returns all past SpaceX launches
+      tags:
+        - Launches
+      responses:
+        '200':
+          description: Array of past launch objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Launch'
+  /launches/{id}:
+    get:
+      operationId: getLaunch
+      summary: Get Launch
+      description: Returns a single SpaceX launch by its unique ID
+      tags:
+        - Launches
+      parameters:
+        - name: id
+          in: path
+          description: Unique launch identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Launch object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Launch'
+        '404':
+          description: Launch not found
+  /launches/query:
+    post:
+      operationId: queryLaunches
+      summary: Query Launches
+      description: Query launches with MongoDB-style filters, pagination, and field population
+      tags:
+        - Launches
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+      responses:
+        '200':
+          description: Paginated query result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResult'
+  /rockets:
+    get:
+      operationId: listRockets
+      summary: List All Rockets
+      description: Returns all SpaceX rocket vehicles
+      tags:
+        - Rockets
+      responses:
+        '200':
+          description: Array of rocket objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Rocket'
+  /rockets/{id}:
+    get:
+      operationId: getRocket
+      summary: Get Rocket
+      description: Returns a single SpaceX rocket by its unique ID
+      tags:
+        - Rockets
+      parameters:
+        - name: id
+          in: path
+          description: Unique rocket identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Rocket object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Rocket'
+        '404':
+          description: Rocket not found
+  /capsules:
+    get:
+      operationId: listCapsules
+      summary: List All Capsules
+      description: Returns all SpaceX Dragon capsule units with reuse history
+      tags:
+        - Capsules
+      responses:
+        '200':
+          description: Array of capsule objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Capsule'
+  /capsules/{id}:
+    get:
+      operationId: getCapsule
+      summary: Get Capsule
+      description: Returns a single SpaceX capsule by its unique ID
+      tags:
+        - Capsules
+      parameters:
+        - name: id
+          in: path
+          description: Unique capsule identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Capsule object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Capsule'
+  /cores:
+    get:
+      operationId: listCores
+      summary: List All Cores
+      description: Returns all SpaceX first-stage booster core units with landing history
+      tags:
+        - Cores
+      responses:
+        '200':
+          description: Array of core objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Core'
+  /cores/{id}:
+    get:
+      operationId: getCore
+      summary: Get Core
+      description: Returns a single SpaceX booster core by its unique ID
+      tags:
+        - Cores
+      parameters:
+        - name: id
+          in: path
+          description: Unique core identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Core object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Core'
+  /crew:
+    get:
+      operationId: listCrew
+      summary: List All Crew
+      description: Returns all SpaceX astronauts and crew members
+      tags:
+        - Crew
+      responses:
+        '200':
+          description: Array of crew member objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CrewMember'
+  /crew/{id}:
+    get:
+      operationId: getCrewMember
+      summary: Get Crew Member
+      description: Returns a single crew member by their unique ID
+      tags:
+        - Crew
+      parameters:
+        - name: id
+          in: path
+          description: Unique crew member identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Crew member object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CrewMember'
+  /launchpads:
+    get:
+      operationId: listLaunchpads
+      summary: List All Launchpads
+      description: Returns all SpaceX launch sites and their current operational status
+      tags:
+        - Launchpads
+      responses:
+        '200':
+          description: Array of launchpad objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Launchpad'
+  /launchpads/{id}:
+    get:
+      operationId: getLaunchpad
+      summary: Get Launchpad
+      description: Returns a single launchpad by its unique ID
+      tags:
+        - Launchpads
+      parameters:
+        - name: id
+          in: path
+          description: Unique launchpad identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Launchpad object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Launchpad'
+  /landpads:
+    get:
+      operationId: listLandpads
+      summary: List All Landing Pads
+      description: Returns all SpaceX landing pads including ASDS drone ships and ground pads
+      tags:
+        - Landing Pads
+      responses:
+        '200':
+          description: Array of landing pad objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Landpad'
+  /landpads/{id}:
+    get:
+      operationId: getLandpad
+      summary: Get Landing Pad
+      description: Returns a single landing pad by its unique ID
+      tags:
+        - Landing Pads
+      parameters:
+        - name: id
+          in: path
+          description: Unique landing pad identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Landing pad object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Landpad'
+  /payloads:
+    get:
+      operationId: listPayloads
+      summary: List All Payloads
+      description: Returns all SpaceX payload manifests including satellites, cargo, and crew vehicles
+      tags:
+        - Payloads
+      responses:
+        '200':
+          description: Array of payload objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Payload'
+  /payloads/{id}:
+    get:
+      operationId: getPayload
+      summary: Get Payload
+      description: Returns a single payload by its unique ID
+      tags:
+        - Payloads
+      parameters:
+        - name: id
+          in: path
+          description: Unique payload identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Payload object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payload'
+  /ships:
+    get:
+      operationId: listShips
+      summary: List All Ships
+      description: Returns all SpaceX fleet vessels including drone ships, fairing recovery vessels, and crew ships
+      tags:
+        - Ships
+      responses:
+        '200':
+          description: Array of ship objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ship'
+  /ships/{id}:
+    get:
+      operationId: getShip
+      summary: Get Ship
+      description: Returns a single ship by its unique ID
+      tags:
+        - Ships
+      parameters:
+        - name: id
+          in: path
+          description: Unique ship identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Ship object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ship'
+  /starlink:
+    get:
+      operationId: listStarlink
+      summary: List All Starlink Satellites
+      description: Returns all Starlink satellite constellation data including orbital parameters
+      tags:
+        - Starlink
+      responses:
+        '200':
+          description: Array of Starlink satellite objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StarlinkSatellite'
+  /starlink/{id}:
+    get:
+      operationId: getStarlinkSatellite
+      summary: Get Starlink Satellite
+      description: Returns a single Starlink satellite by its unique ID
+      tags:
+        - Starlink
+      parameters:
+        - name: id
+          in: path
+          description: Unique Starlink satellite identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Starlink satellite object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StarlinkSatellite'
+  /roadster:
+    get:
+      operationId: getRoadster
+      summary: Get Roadster
+      description: Returns real-time tracking data for Elon Musk's Tesla Roadster launched aboard Falcon Heavy
+      tags:
+        - Roadster
+      responses:
+        '200':
+          description: Roadster tracking object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Roadster'
+components:
+  schemas:
+    Launch:
+      type: object
+      description: A SpaceX mission launch including all metadata, vehicle, and outcome data
+      properties:
+        id:
+          type: string
+          description: Unique launch identifier
+          example: "62dd70d5202306255024d139"
+        name:
+          type: string
+          description: Mission designation
+          example: "Crew-5"
+        flight_number:
+          type: integer
+          description: Sequential SpaceX flight number
+          example: 187
+        date_utc:
+          type: string
+          format: date-time
+          description: Launch date and time in UTC
+          example: "2022-10-05T16:00:00.000Z"
+        date_unix:
+          type: integer
+          description: Launch date as Unix timestamp
+          example: 1664985600
+        date_local:
+          type: string
+          description: Launch date and time in local timezone
+          example: "2022-10-05T12:00:00-04:00"
+        date_precision:
+          type: string
+          description: Precision of the launch date (half, quarter, year, month, day, hour)
+          enum: [half, quarter, year, month, day, hour]
+        upcoming:
+          type: boolean
+          description: Whether this is a future planned launch
+          example: false
+        success:
+          type: boolean
+          nullable: true
+          description: Whether the launch was successful (null if upcoming)
+          example: true
+        details:
+          type: string
+          nullable: true
+          description: Mission description or notes
+        rocket:
+          type: string
+          description: Rocket ID (reference to rockets endpoint)
+          example: "5e9d0d95eda69973a809d1ec"
+        launchpad:
+          type: string
+          description: Launchpad ID (reference to launchpads endpoint)
+          example: "5e9e4502f509094188566f88"
+        payloads:
+          type: array
+          description: List of payload IDs
+          items:
+            type: string
+        capsules:
+          type: array
+          description: List of capsule IDs
+          items:
+            type: string
+        crew:
+          type: array
+          description: Crew assignments with roles
+          items:
+            $ref: '#/components/schemas/CrewAssignment'
+        ships:
+          type: array
+          description: Recovery ship IDs
+          items:
+            type: string
+        cores:
+          type: array
+          description: First stage booster core details
+          items:
+            $ref: '#/components/schemas/CoreDetail'
+        failures:
+          type: array
+          description: Failure details if launch was unsuccessful
+          items:
+            $ref: '#/components/schemas/Failure'
+        links:
+          $ref: '#/components/schemas/LaunchLinks'
+        fairings:
+          nullable: true
+          $ref: '#/components/schemas/Fairings'
+        net:
+          type: boolean
+          description: No Earlier Than flag — launch date is approximate
+        window:
+          type: integer
+          nullable: true
+          description: Launch window duration in seconds
+        auto_update:
+          type: boolean
+          description: Whether launch data auto-syncs from external sources
+        tbd:
+          type: boolean
+          description: To Be Determined — date or details are unconfirmed
+        launch_library_id:
+          type: string
+          format: uuid
+          nullable: true
+          description: Launch Library 2 reference ID
+    LaunchLinks:
+      type: object
+      description: Media and reference links for a launch
+      properties:
+        patch:
+          type: object
+          description: Mission patch image URLs
+          properties:
+            small:
+              type: string
+              format: uri
+            large:
+              type: string
+              format: uri
+        reddit:
+          type: object
+          description: Reddit community thread links
+          properties:
+            campaign:
+              type: string
+              format: uri
+              nullable: true
+            launch:
+              type: string
+              format: uri
+              nullable: true
+            media:
+              type: string
+              format: uri
+              nullable: true
+            recovery:
+              type: string
+              format: uri
+              nullable: true
+        flickr:
+          type: object
+          description: Flickr photo links
+          properties:
+            small:
+              type: array
+              items:
+                type: string
+                format: uri
+            original:
+              type: array
+              items:
+                type: string
+                format: uri
+        presskit:
+          type: string
+          format: uri
+          nullable: true
+          description: Press kit PDF URL
+        webcast:
+          type: string
+          format: uri
+          nullable: true
+          description: Webcast stream URL
+        youtube_id:
+          type: string
+          nullable: true
+          description: YouTube video ID for the launch webcast
+        article:
+          type: string
+          format: uri
+          nullable: true
+          description: News article link
+        wikipedia:
+          type: string
+          format: uri
+          nullable: true
+          description: Wikipedia article link
+    Fairings:
+      type: object
+      description: Payload fairing recovery details
+      properties:
+        reused:
+          type: boolean
+          nullable: true
+        recovery_attempt:
+          type: boolean
+          nullable: true
+        recovered:
+          type: boolean
+          nullable: true
+        ships:
+          type: array
+          items:
+            type: string
+    CoreDetail:
+      type: object
+      description: First stage booster core detail for a specific launch
+      properties:
+        core:
+          type: string
+          nullable: true
+          description: Core ID
+        flight:
+          type: integer
+          nullable: true
+          description: Which flight number this is for this core
+        gridfins:
+          type: boolean
+          nullable: true
+          description: Whether grid fins were used
+        legs:
+          type: boolean
+          nullable: true
+          description: Whether landing legs were deployed
+        reused:
+          type: boolean
+          nullable: true
+          description: Whether this core was previously flown
+        landing_attempt:
+          type: boolean
+          nullable: true
+          description: Whether a landing was attempted
+        landing_success:
+          type: boolean
+          nullable: true
+          description: Whether landing succeeded
+        landing_type:
+          type: string
+          nullable: true
+          description: Landing type (ASDS, RTLS, Ocean)
+          enum: [ASDS, RTLS, Ocean]
+        landpad:
+          type: string
+          nullable: true
+          description: Landing pad ID
+    CrewAssignment:
+      type: object
+      description: Crew member assignment for a launch
+      properties:
+        crew:
+          type: string
+          description: Crew member ID
+        role:
+          type: string
+          description: Role aboard the mission
+          example: Commander
+    Failure:
+      type: object
+      description: Launch failure record
+      properties:
+        time:
+          type: integer
+          description: Time of failure in seconds from launch
+        altitude:
+          type: integer
+          nullable: true
+          description: Altitude at failure in kilometers
+        reason:
+          type: string
+          description: Description of the failure cause
+    Rocket:
+      type: object
+      description: A SpaceX rocket vehicle
+      properties:
+        id:
+          type: string
+          description: Unique rocket identifier
+        name:
+          type: string
+          description: Rocket name (e.g., Falcon 9, Falcon Heavy, Starship)
+        description:
+          type: string
+          description: Rocket description
+        active:
+          type: boolean
+          description: Whether the rocket is currently in service
+        stages:
+          type: integer
+          description: Number of stages
+        boosters:
+          type: integer
+          description: Number of boosters
+        cost_per_launch:
+          type: integer
+          description: Typical cost per launch in USD
+        success_rate_pct:
+          type: integer
+          description: Historical success rate as a percentage
+        first_flight:
+          type: string
+          description: Date of first flight
+        country:
+          type: string
+          description: Country of manufacture
+        company:
+          type: string
+          description: Manufacturing company
+    Capsule:
+      type: object
+      description: A SpaceX Dragon capsule unit
+      properties:
+        id:
+          type: string
+          description: Unique capsule identifier
+        serial:
+          type: string
+          description: Capsule serial number (e.g., C201)
+        status:
+          type: string
+          description: Current capsule status (active, retired, destroyed)
+        type:
+          type: string
+          description: Capsule type (Dragon 1.0, Dragon 1.1, Dragon 2)
+        dragon:
+          type: string
+          description: Dragon variant ID
+        reuse_count:
+          type: integer
+          description: Number of times capsule has been reused
+        water_landings:
+          type: integer
+          description: Number of water landings
+        land_landings:
+          type: integer
+          description: Number of land landings
+        last_update:
+          type: string
+          nullable: true
+          description: Most recent status note
+        launches:
+          type: array
+          description: List of launch IDs this capsule participated in
+          items:
+            type: string
+    Core:
+      type: object
+      description: A SpaceX first-stage booster core
+      properties:
+        id:
+          type: string
+          description: Unique core identifier
+        serial:
+          type: string
+          description: Core serial number (e.g., B1061)
+        status:
+          type: string
+          description: Core status (active, expended, retired, lost, unknown)
+        reuse_count:
+          type: integer
+          description: Number of times this core has been reused
+        rtls_attempts:
+          type: integer
+          description: Return to launch site landing attempts
+        rtls_landings:
+          type: integer
+          description: Successful RTLS landings
+        asds_attempts:
+          type: integer
+          description: Autonomous spaceport drone ship landing attempts
+        asds_landings:
+          type: integer
+          description: Successful ASDS landings
+        last_update:
+          type: string
+          nullable: true
+          description: Most recent status note
+        launches:
+          type: array
+          description: Launch IDs this core flew on
+          items:
+            type: string
+    CrewMember:
+      type: object
+      description: A SpaceX astronaut or crew member
+      properties:
+        id:
+          type: string
+          description: Unique crew member identifier
+        name:
+          type: string
+          description: Full name of the crew member
+        status:
+          type: string
+          description: Status (active, retired, unknown)
+        agency:
+          type: string
+          description: Space agency affiliation
+        image:
+          type: string
+          format: uri
+          description: Portrait image URL
+        wikipedia:
+          type: string
+          format: uri
+          description: Wikipedia profile link
+        launches:
+          type: array
+          description: Launch IDs the crew member participated in
+          items:
+            type: string
+    Launchpad:
+      type: object
+      description: A SpaceX launch site
+      properties:
+        id:
+          type: string
+          description: Unique launchpad identifier
+        name:
+          type: string
+          description: Launchpad short name (e.g., KSC LC 39A)
+        full_name:
+          type: string
+          description: Full launchpad name
+        status:
+          type: string
+          description: Operational status (active, inactive, retired, lost, under construction)
+        locality:
+          type: string
+          description: City or locality
+        region:
+          type: string
+          description: State or region
+        latitude:
+          type: number
+          description: Geographic latitude
+        longitude:
+          type: number
+          description: Geographic longitude
+        launch_attempts:
+          type: integer
+          description: Total launch attempts from this pad
+        launch_successes:
+          type: integer
+          description: Successful launches from this pad
+        rockets:
+          type: array
+          description: Rocket IDs that have launched from this pad
+          items:
+            type: string
+        launches:
+          type: array
+          description: Launch IDs from this pad
+          items:
+            type: string
+    Landpad:
+      type: object
+      description: A SpaceX landing pad or drone ship
+      properties:
+        id:
+          type: string
+          description: Unique landing pad identifier
+        name:
+          type: string
+          description: Landing pad name (e.g., Of Course I Still Love You)
+        full_name:
+          type: string
+          description: Full landing pad name
+        status:
+          type: string
+          description: Operational status
+        type:
+          type: string
+          description: Pad type (RTLS, ASDS)
+        locality:
+          type: string
+          description: Location city or locality
+        region:
+          type: string
+          description: Location state or region
+        latitude:
+          type: number
+          description: Geographic latitude
+        longitude:
+          type: number
+          description: Geographic longitude
+        landing_attempts:
+          type: integer
+          description: Total landing attempts at this pad
+        landing_successes:
+          type: integer
+          description: Successful landings at this pad
+        wikipedia:
+          type: string
+          format: uri
+          description: Wikipedia article link
+        launches:
+          type: array
+          description: Launch IDs that used this landing pad
+          items:
+            type: string
+    Payload:
+      type: object
+      description: A SpaceX payload manifest entry
+      properties:
+        id:
+          type: string
+          description: Unique payload identifier
+        name:
+          type: string
+          description: Payload name or designation
+        type:
+          type: string
+          description: Payload type (Satellite, Dragon Boilerplate, Crew Dragon, etc.)
+        reused:
+          type: boolean
+          description: Whether this payload has flown before
+        launch:
+          type: string
+          description: Launch ID this payload flew on
+        customers:
+          type: array
+          description: Customer organizations
+          items:
+            type: string
+        nationalities:
+          type: array
+          description: Customer nationalities
+          items:
+            type: string
+        manufacturers:
+          type: array
+          description: Payload manufacturers
+          items:
+            type: string
+        mass_kg:
+          type: number
+          nullable: true
+          description: Payload mass in kilograms
+        mass_lbs:
+          type: number
+          nullable: true
+          description: Payload mass in pounds
+        orbit:
+          type: string
+          nullable: true
+          description: Target orbit (LEO, GTO, ISS, SSO, etc.)
+        reference_system:
+          type: string
+          nullable: true
+          description: Orbital reference system
+        regime:
+          type: string
+          nullable: true
+          description: Orbital regime
+    Ship:
+      type: object
+      description: A SpaceX fleet vessel
+      properties:
+        id:
+          type: string
+          description: Unique ship identifier
+        name:
+          type: string
+          description: Ship name
+        legacy_id:
+          type: string
+          nullable: true
+          description: Legacy identifier from previous API versions
+        model:
+          type: string
+          nullable: true
+          description: Ship model/class
+        type:
+          type: string
+          description: Ship type (Drone Ship, Crew Ship, Support, Tug, Barge)
+        roles:
+          type: array
+          description: Ship operational roles
+          items:
+            type: string
+        active:
+          type: boolean
+          description: Whether ship is currently active
+        imo:
+          type: integer
+          nullable: true
+          description: IMO vessel number
+        mmsi:
+          type: integer
+          nullable: true
+          description: MMSI maritime identifier
+        abs:
+          type: integer
+          nullable: true
+          description: ABS vessel number
+        class:
+          type: integer
+          nullable: true
+          description: Ship class code
+        mass_kg:
+          type: number
+          nullable: true
+          description: Ship mass in kilograms
+        mass_lbs:
+          type: number
+          nullable: true
+          description: Ship mass in pounds
+        year_built:
+          type: integer
+          nullable: true
+          description: Year the ship was built
+        home_port:
+          type: string
+          description: Home port location
+        status:
+          type: string
+          nullable: true
+          description: Current operational status
+        speed_kn:
+          type: number
+          nullable: true
+          description: Current speed in knots
+        course_deg:
+          type: number
+          nullable: true
+          description: Current course in degrees
+        latitude:
+          type: number
+          nullable: true
+          description: Current latitude
+        longitude:
+          type: number
+          nullable: true
+          description: Current longitude
+        link:
+          type: string
+          format: uri
+          nullable: true
+          description: MarineTraffic or vessel tracking link
+        image:
+          type: string
+          format: uri
+          nullable: true
+          description: Ship image URL
+        launches:
+          type: array
+          description: Launch IDs this ship supported
+          items:
+            type: string
+    StarlinkSatellite:
+      type: object
+      description: A SpaceX Starlink constellation satellite
+      properties:
+        id:
+          type: string
+          description: Unique Starlink satellite identifier
+        version:
+          type: string
+          description: Starlink satellite version (v0.9, v1.0, v1.5, v2.0)
+        launch:
+          type: string
+          nullable: true
+          description: Launch ID this satellite was deployed on
+        spaceTrack:
+          type: object
+          description: Space-Track.org TLE and orbital data
+          additionalProperties: true
+    Roadster:
+      type: object
+      description: Tracking data for Elon Musk's Tesla Roadster launched on Falcon Heavy
+      properties:
+        id:
+          type: string
+          description: Roadster identifier
+        name:
+          type: string
+          description: Object designation
+        launch_date_utc:
+          type: string
+          format: date-time
+          description: Launch date in UTC
+        launch_date_unix:
+          type: integer
+          description: Launch date as Unix timestamp
+        launch_mass_kg:
+          type: number
+          description: Launch mass in kilograms
+        norad_id:
+          type: integer
+          description: NORAD catalog number
+        epoch_jd:
+          type: number
+          description: Epoch as Julian date
+        orbit_type:
+          type: string
+          description: Orbital type designation
+        apoapsis_au:
+          type: number
+          description: Apoapsis in astronomical units
+        periapsis_au:
+          type: number
+          description: Periapsis in astronomical units
+        semi_major_axis_au:
+          type: number
+          description: Semi-major axis in astronomical units
+        eccentricity:
+          type: number
+          description: Orbital eccentricity
+        inclination:
+          type: number
+          description: Orbital inclination in degrees
+        speed_kph:
+          type: number
+          description: Current speed in km/h
+        speed_mph:
+          type: number
+          description: Current speed in mph
+        earth_distance_km:
+          type: number
+          description: Current distance from Earth in km
+        mars_distance_km:
+          type: number
+          description: Current distance from Mars in km
+        wikipedia:
+          type: string
+          format: uri
+          description: Wikipedia article link
+        details:
+          type: string
+          description: Mission description
+    QueryRequest:
+      type: object
+      description: MongoDB-style query request for paginated, filtered lookups
+      properties:
+        query:
+          type: object
+          description: MongoDB query filter object
+          additionalProperties: true
+        options:
+          type: object
+          description: Query options for pagination and population
+          properties:
+            limit:
+              type: integer
+              description: Maximum number of results to return
+            offset:
+              type: integer
+              description: Number of results to skip
+            page:
+              type: integer
+              description: Page number for pagination
+            populate:
+              type: array
+              description: Fields to populate with referenced documents
+              items:
+                type: string
+            select:
+              type: object
+              description: Field projection (1 to include, 0 to exclude)
+              additionalProperties:
+                type: integer
+            sort:
+              type: object
+              description: Sort specification
+              additionalProperties:
+                type: integer
+    QueryResult:
+      type: object
+      description: Paginated query result
+      properties:
+        docs:
+          type: array
+          description: Array of result documents
+          items:
+            type: object
+        totalDocs:
+          type: integer
+          description: Total number of matching documents
+        offset:
+          type: integer
+          description: Current offset
+        limit:
+          type: integer
+          description: Results per page
+        totalPages:
+          type: integer
+          description: Total number of pages
+        page:
+          type: integer
+          description: Current page number
+        pagingCounter:
+          type: integer
+          description: Index of first document in this page
+        hasPrevPage:
+          type: boolean
+          description: Whether a previous page exists
+        hasNextPage:
+          type: boolean
+          description: Whether a next page exists
+        prevPage:
+          type: integer
+          nullable: true
+          description: Previous page number
+        nextPage:
+          type: integer
+          nullable: true
+          description: Next page number
