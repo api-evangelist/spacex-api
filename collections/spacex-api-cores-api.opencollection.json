@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX Capsules Cores API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Cores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/cores"
+          },
+          "docs": "Returns all SpaceX first-stage booster core units with landing history"
+        },
+        {
+          "info": {
+            "name": "Get Core",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/cores/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique core identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single SpaceX booster core by its unique ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

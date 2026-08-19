@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX Capsules API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Capsules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Capsules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/capsules"
+          },
+          "docs": "Returns all SpaceX Dragon capsule units with reuse history"
+        },
+        {
+          "info": {
+            "name": "Get Capsule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/capsules/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique capsule identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single SpaceX capsule by its unique ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

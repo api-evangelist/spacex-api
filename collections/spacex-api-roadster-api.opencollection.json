@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX Capsules Roadster API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Roadster",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Roadster",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/roadster"
+          },
+          "docs": "Returns real-time tracking data for Elon Musk's Tesla Roadster launched aboard Falcon Heavy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

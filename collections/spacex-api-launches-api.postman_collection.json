@@ -1,0 +1,609 @@
+{
+  "item": [
+    {
+      "id": "ff1f7cc8-f724-47e6-9a6b-5af1a3dd6df7",
+      "name": "Launches",
+      "description": {
+        "content": "SpaceX mission launch data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6ba3399f-c919-4e1d-b5f0-680740a13dcc",
+          "name": "List All Launches",
+          "request": {
+            "name": "List All Launches",
+            "description": {
+              "content": "Returns all SpaceX launches including past and upcoming missions",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "launches"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67e63a31-7827-4c78-bb6e-971c026df6d8",
+              "name": "Array of launch objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "launches"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"62dd70d5202306255024d139\",\n    \"name\": \"Crew-5\",\n    \"flight_number\": 187,\n    \"date_utc\": \"2022-10-05T16:00:00.000Z\",\n    \"date_unix\": 1664985600,\n    \"date_local\": \"2022-10-05T12:00:00-04:00\",\n    \"date_precision\": \"quarter\",\n    \"upcoming\": false,\n    \"success\": true,\n    \"details\": \"string\",\n    \"rocket\": \"5e9d0d95eda69973a809d1ec\",\n    \"launchpad\": \"5e9e4502f509094188566f88\",\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 4008,\n        \"gridfins\": false,\n        \"legs\": true,\n        \"reused\": true,\n        \"landing_attempt\": false,\n        \"landing_success\": true,\n        \"landing_type\": \"ASDS\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 5221,\n        \"gridfins\": false,\n        \"legs\": true,\n        \"reused\": true,\n        \"landing_attempt\": false,\n        \"landing_success\": false,\n        \"landing_type\": \"ASDS\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"failures\": [\n      {\n        \"time\": 7566,\n        \"altitude\": 9093,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 3226,\n        \"altitude\": 21,\n        \"reason\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"http://xfnQf.ysexLu+x9gZpi,V7babqSscI3YDsEqVSq-V.oTU4lWnsUi3oRn\",\n        \"large\": \"http://QSpMMnCMxFGAmrHEtCMEogPHBOsNiI.kstwackBUdRyaWBhnIAPeiR9ReixR4SBDv\"\n      },\n      \"reddit\": {\n        \"campaign\": \"http://WzwRquHSnsykSEUJjK.rtU3,4biNTupc\",\n        \"launch\": \"https://qJOgtBLYaJ.zmmedjMSgoX2K0i0Zu+ymDQZJOoCytTz\",\n        \"media\": \"http://OByhUaRz.gjgCLuYXVWxg3L+Zisy.EUtMCw0MQ5f8V\",\n        \"recovery\": \"http://yHXANIu.isjsMbHvfKO6GHGZ5A1Hhc2A3fhrBnkJ40DeS3\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"http://DYK.suqZZyEm-hg2NQghyez2R7lOogWfQW8Aw63XPa6WeYfCNWuLV1MImvdVYVqlr\",\n          \"https://OTkTLgIdVOedleNe.dmyY8ULuuyFLgne\"\n        ],\n        \"original\": [\n          \"https://gkAueBFiUm.ftdp3yTHVU6TTHMDmbx\",\n          \"https://bcGdaucPlCVUYhyOAZOnhrAjgCp.ookiqnsSCbFOi4H-QFY+ydlzHfivHlKWsvZeWvfeAroHRcskPNEDrrZEm0.VnzQEkk\"\n        ]\n      },\n      \"presskit\": \"http://Eg.puxRsSgbvUiGlmKZCnfhsUTVga4ymcXhDycGxqlfBncZaPwwt\",\n      \"webcast\": \"http://fdlamKXsMAHBeporCWgOsiN.azraOCrQ9feK+iVP0QlGDzKKU+pBT9-8HR4Tk+DKuLQBrtqJv1azhHkoVO\",\n      \"youtube_id\": \"string\",\n      \"article\": \"https://XltCEwlLv.gsmjtw45yWZZuYDqilQWmsM5TtJzmbaEDIDpGAwfKeBk6\",\n      \"wikipedia\": \"https://OeqcLmGAJFDRWCiTEdGOBcIhaWRuSlTTL.ynlnhKcW7zY1XsLQTGMZ3nmsE09fimw3rNYK\"\n    },\n    \"fairings\": {\n      \"reused\": false,\n      \"recovery_attempt\": true,\n      \"recovered\": false,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"net\": false,\n    \"window\": 1122,\n    \"auto_update\": false,\n    \"tbd\": true,\n    \"launch_library_id\": \"ee0ff05d-cf93-2a59-faac-87fe98b167fa\"\n  },\n  {\n    \"id\": \"62dd70d5202306255024d139\",\n    \"name\": \"Crew-5\",\n    \"flight_number\": 187,\n    \"date_utc\": \"2022-10-05T16:00:00.000Z\",\n    \"date_unix\": 1664985600,\n    \"date_local\": \"2022-10-05T12:00:00-04:00\",\n    \"date_precision\": \"day\",\n    \"upcoming\": false,\n    \"success\": true,\n    \"details\": \"string\",\n    \"rocket\": \"5e9d0d95eda69973a809d1ec\",\n    \"launchpad\": \"5e9e4502f509094188566f88\",\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 2443,\n        \"gridfins\": false,\n        \"legs\": false,\n        \"reused\": false,\n        \"landing_attempt\": true,\n        \"landing_success\": false,\n        \"landing_type\": \"ASDS\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 9468,\n        \"gridfins\": true,\n        \"legs\": false,\n        \"reused\": false,\n        \"landing_attempt\": false,\n        \"landing_success\": false,\n        \"landing_type\": \"RTLS\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"failures\": [\n      {\n        \"time\": 7703,\n        \"altitude\": 885,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 1882,\n        \"altitude\": 8181,\n        \"reason\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"https://thkYR.gjslzbTt+GKLOUwiGyLqmyG-G45XQX6gBoa1O3kNws\",\n        \"large\": \"http://SBYBCGBRjbLxL.gorKdCgMvg4Ons1,UjsE05gHSGh+JXxApL\"\n      },\n      \"reddit\": {\n        \"campaign\": \"https://dlhnyyBMjWSHuuTZv.mioAEMsT\",\n        \"launch\": \"http://FuBGVcFgDGfDAbKCnNYiFAQbXkTkVu.vobPQ.AUNCBfb7WcBFiKsXdTE0\",\n        \"media\": \"https://JhtkawWGFZEGfYgTOjYCkV.oleGb7Xk.6WMM1qZpCJlivSJxUTDiOCQs.dH7S\",\n        \"recovery\": \"https://dmIBDaDnvKPuMTYQiyyDNKgtQOgW.txwN1dydEpohgGLdMCV5x.hVkdOwqwUku9Hf2\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"https://amVJKigXQAxmMyazmKdaRbtrhcK.nxcahfi8HLUWK1tD0jSxy-2X\",\n          \"https://ayqFnslNfilRZbZJzipSA.jgpdtr.qGw+RGd7vbymSGSgTSaWjR0LKrGXikCZTMRGuSlDybJBA\"\n        ],\n        \"original\": [\n          \"http://nslEmsdbzvcUNRNhf.sooeeqkBYRipxyuPCJ2caHSgqBT7jTdClB.iMc3Gg64kJpiEe5Zcb\",\n          \"https://HTtdLVHdgkcKpZtQApyRakSirBG.hglkbEM8OJB8pBxfuwYK1DhzVRwvdCSN+YjW1ab3tps.xaE\"\n        ]\n      },\n      \"presskit\": \"https://jI.bcYa,X\",\n      \"webcast\": \"https://Da.herzL6.kumn92E\",\n      \"youtube_id\": \"string\",\n      \"article\": \"https://IFcDoRLrJPpW.wuhU+-pPyl-hBFWBrKnke5ZSCGHUq4+QlBOi+ulhY,fbHK0gf62olj101qIu-zBxKOFORVCmMFoCO\",\n      \"wikipedia\": \"https://NhdOrCTUypjnczfEwZJypWH.yuwg7fyhvz-ckTiYtqBX9lLEPEzmiR+kI\"\n    },\n    \"fairings\": {\n      \"reused\": true,\n      \"recovery_attempt\": false,\n      \"recovered\": false,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"net\": true,\n    \"window\": 957,\n    \"auto_update\": false,\n    \"tbd\": false,\n    \"launch_library_id\": \"05a8c1e1-9931-fd82-5fcc-0311bff5c0a0\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "863eb753-4a4b-466b-a017-d5600921f44d",
+          "name": "Get Latest Launch",
+          "request": {
+            "name": "Get Latest Launch",
+            "description": {
+              "content": "Returns the most recent SpaceX launch",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "launches",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "39af0650-7942-4d95-9e45-4430b4534869",
+              "name": "Most recent launch object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "launches",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"62dd70d5202306255024d139\",\n  \"name\": \"Crew-5\",\n  \"flight_number\": 187,\n  \"date_utc\": \"2022-10-05T16:00:00.000Z\",\n  \"date_unix\": 1664985600,\n  \"date_local\": \"2022-10-05T12:00:00-04:00\",\n  \"date_precision\": \"day\",\n  \"upcoming\": false,\n  \"success\": true,\n  \"details\": \"string\",\n  \"rocket\": \"5e9d0d95eda69973a809d1ec\",\n  \"launchpad\": \"5e9e4502f509094188566f88\",\n  \"payloads\": [\n    \"string\",\n    \"string\"\n  ],\n  \"capsules\": [\n    \"string\",\n    \"string\"\n  ],\n  \"crew\": [\n    {\n      \"crew\": \"string\",\n      \"role\": \"Commander\"\n    },\n    {\n      \"crew\": \"string\",\n      \"role\": \"Commander\"\n    }\n  ],\n  \"ships\": [\n    \"string\",\n    \"string\"\n  ],\n  \"cores\": [\n    {\n      \"core\": \"string\",\n      \"flight\": 82,\n      \"gridfins\": true,\n      \"legs\": false,\n      \"reused\": true,\n      \"landing_attempt\": false,\n      \"landing_success\": true,\n      \"landing_type\": \"RTLS\",\n      \"landpad\": \"string\"\n    },\n    {\n      \"core\": \"string\",\n      \"flight\": 9136,\n      \"gridfins\": true,\n      \"legs\": false,\n      \"reused\": true,\n      \"landing_attempt\": false,\n      \"landing_success\": true,\n      \"landing_type\": \"RTLS\",\n      \"landpad\": \"string\"\n    }\n  ],\n  \"failures\": [\n    {\n      \"time\": 5141,\n      \"altitude\": 4199,\n      \"reason\": \"string\"\n    },\n    {\n      \"time\": 3373,\n      \"altitude\": 7993,\n      \"reason\": \"string\"\n    }\n  ],\n  \"links\": {\n    \"patch\": {\n      \"small\": \"http://j.isqYbyBCawl,hdGAwcZBeCeRZQGb7namVF8w,MCU\",\n      \"large\": \"http://bBnyFayiHiCgRIccmJC.ahDRisU8H\"\n    },\n    \"reddit\": {\n      \"campaign\": \"https://hnC.izyt4PMyIu,1o\",\n      \"launch\": \"https://tVJOIdoCKGMZZlpFulubtBBIjTI.etpC\",\n      \"media\": \"http://nNPOqdbGHjWyAFkurMKckIacbvHaFH.rtamuYdcCcPdzD5Q0Vp.IpJZ6up1WW78+yMrTj6Sz4IEOebtTGbNMbxG\",\n      \"recovery\": \"https://GIiOyXgZUNAAcoLuOrq.fustgqLlbFlCPfslFT\"\n    },\n    \"flickr\": {\n      \"small\": [\n        \"https://kinLtaEHLtYZ.ibw8b+6qTwd0WEfwh0AEpV3FREIspKgIWVsyofwja+C8\",\n        \"http://JiIyqsfHSimKJpaCxRtxDSiyyZPidEA.zszfvJgduDZuOHhrP2vSLlM28z6BlB,+GosOe05F2iED\"\n      ],\n      \"original\": [\n        \"http://kgiqbfqVNQHtDIrQVtJXDwZZYS.ztgoS2cf7lE48a,WYhtakraPGzHV6YTahpKZPNHX+SRJAo.h\",\n        \"http://FMbojo.wpbNAG2CJ5j1Dv\"\n      ]\n    },\n    \"presskit\": \"https://hRVOYQAzIIzgVyIWvlJnRfxbuRJWkPL.gmDoDxB3arNOyYnyVColY8e+ZOm3TuNM2GBRUHb0-\",\n    \"webcast\": \"http://U.jmWvM5gEKiEgHuhyJVnX1VLmmo5bH2J+BehL8Ul+qnyewnZ1c1dq66nR\",\n    \"youtube_id\": \"string\",\n    \"article\": \"http://IhoFBlDaaOyunLTKspnigkllrnP.xvef0RNlmuLj1yHivY0foM.7qKxR1sjxi3oUoV.SJcjwj4\",\n    \"wikipedia\": \"https://XjONID.kxpcwgsOP,HAc.NvHdafQLfBCQM62VzSgrZjTcdo9Vz.Cu023JjCFrB8qmwimWS\"\n  },\n  \"fairings\": {\n    \"reused\": false,\n    \"recovery_attempt\": true,\n    \"recovered\": false,\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"net\": false,\n  \"window\": 2077,\n  \"auto_update\": false,\n  \"tbd\": false,\n  \"launch_library_id\": \"e33e11f6-e19e-36d5-aa69-72c64e84f99a\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1e7f3ba-88ad-4499-8398-7b179affe682",
+          "name": "Get Next Launch",
+          "request": {
+            "name": "Get Next Launch",
+            "description": {
+              "content": "Returns the next scheduled SpaceX launch",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "launches",
+                "next"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f46334c9-5ef0-4253-8970-f69656528973",
+              "name": "Next scheduled launch object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "launches",
+                    "next"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"62dd70d5202306255024d139\",\n  \"name\": \"Crew-5\",\n  \"flight_number\": 187,\n  \"date_utc\": \"2022-10-05T16:00:00.000Z\",\n  \"date_unix\": 1664985600,\n  \"date_local\": \"2022-10-05T12:00:00-04:00\",\n  \"date_precision\": \"day\",\n  \"upcoming\": false,\n  \"success\": true,\n  \"details\": \"string\",\n  \"rocket\": \"5e9d0d95eda69973a809d1ec\",\n  \"launchpad\": \"5e9e4502f509094188566f88\",\n  \"payloads\": [\n    \"string\",\n    \"string\"\n  ],\n  \"capsules\": [\n    \"string\",\n    \"string\"\n  ],\n  \"crew\": [\n    {\n      \"crew\": \"string\",\n      \"role\": \"Commander\"\n    },\n    {\n      \"crew\": \"string\",\n      \"role\": \"Commander\"\n    }\n  ],\n  \"ships\": [\n    \"string\",\n    \"string\"\n  ],\n  \"cores\": [\n    {\n      \"core\": \"string\",\n      \"flight\": 82,\n      \"gridfins\": true,\n      \"legs\": false,\n      \"reused\": true,\n      \"landing_attempt\": false,\n      \"landing_success\": true,\n      \"landing_type\": \"RTLS\",\n      \"landpad\": \"string\"\n    },\n    {\n      \"core\": \"string\",\n      \"flight\": 9136,\n      \"gridfins\": true,\n      \"legs\": false,\n      \"reused\": true,\n      \"landing_attempt\": false,\n      \"landing_success\": true,\n      \"landing_type\": \"RTLS\",\n      \"landpad\": \"string\"\n    }\n  ],\n  \"failures\": [\n    {\n      \"time\": 5141,\n      \"altitude\": 4199,\n      \"reason\": \"string\"\n    },\n    {\n      \"time\": 3373,\n      \"altitude\": 7993,\n      \"reason\": \"string\"\n    }\n  ],\n  \"links\": {\n    \"patch\": {\n      \"small\": \"http://j.isqYbyBCawl,hdGAwcZBeCeRZQGb7namVF8w,MCU\",\n      \"large\": \"http://bBnyFayiHiCgRIccmJC.ahDRisU8H\"\n    },\n    \"reddit\": {\n      \"campaign\": \"https://hnC.izyt4PMyIu,1o\",\n      \"launch\": \"https://tVJOIdoCKGMZZlpFulubtBBIjTI.etpC\",\n      \"media\": \"http://nNPOqdbGHjWyAFkurMKckIacbvHaFH.rtamuYdcCcPdzD5Q0Vp.IpJZ6up1WW78+yMrTj6Sz4IEOebtTGbNMbxG\",\n      \"recovery\": \"https://GIiOyXgZUNAAcoLuOrq.fustgqLlbFlCPfslFT\"\n    },\n    \"flickr\": {\n      \"small\": [\n        \"https://kinLtaEHLtYZ.ibw8b+6qTwd0WEfwh0AEpV3FREIspKgIWVsyofwja+C8\",\n        \"http://JiIyqsfHSimKJpaCxRtxDSiyyZPidEA.zszfvJgduDZuOHhrP2vSLlM28z6BlB,+GosOe05F2iED\"\n      ],\n      \"original\": [\n        \"http://kgiqbfqVNQHtDIrQVtJXDwZZYS.ztgoS2cf7lE48a,WYhtakraPGzHV6YTahpKZPNHX+SRJAo.h\",\n        \"http://FMbojo.wpbNAG2CJ5j1Dv\"\n      ]\n    },\n    \"presskit\": \"https://hRVOYQAzIIzgVyIWvlJnRfxbuRJWkPL.gmDoDxB3arNOyYnyVColY8e+ZOm3TuNM2GBRUHb0-\",\n    \"webcast\": \"http://U.jmWvM5gEKiEgHuhyJVnX1VLmmo5bH2J+BehL8Ul+qnyewnZ1c1dq66nR\",\n    \"youtube_id\": \"string\",\n    \"article\": \"http://IhoFBlDaaOyunLTKspnigkllrnP.xvef0RNlmuLj1yHivY0foM.7qKxR1sjxi3oUoV.SJcjwj4\",\n    \"wikipedia\": \"https://XjONID.kxpcwgsOP,HAc.NvHdafQLfBCQM62VzSgrZjTcdo9Vz.Cu023JjCFrB8qmwimWS\"\n  },\n  \"fairings\": {\n    \"reused\": false,\n    \"recovery_attempt\": true,\n    \"recovered\": false,\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"net\": false,\n  \"window\": 2077,\n  \"auto_update\": false,\n  \"tbd\": false,\n  \"launch_library_id\": \"e33e11f6-e19e-36d5-aa69-72c64e84f99a\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99c316e4-bea7-4073-8fc8-e05e42f84af8",
+          "name": "List Upcoming Launches",
+          "request": {
+            "name": "List Upcoming Launches",
+            "description": {
+              "content": "Returns all future scheduled SpaceX launches",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "launches",
+                "upcoming"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef292396-a941-40f8-b08f-bf2dbc6737eb",
+              "name": "Array of upcoming launch objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "launches",
+                    "upcoming"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"62dd70d5202306255024d139\",\n    \"name\": \"Crew-5\",\n    \"flight_number\": 187,\n    \"date_utc\": \"2022-10-05T16:00:00.000Z\",\n    \"date_unix\": 1664985600,\n    \"date_local\": \"2022-10-05T12:00:00-04:00\",\n    \"date_precision\": \"half\",\n    \"upcoming\": false,\n    \"success\": true,\n    \"details\": \"string\",\n    \"rocket\": \"5e9d0d95eda69973a809d1ec\",\n    \"launchpad\": \"5e9e4502f509094188566f88\",\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 3888,\n        \"gridfins\": false,\n        \"legs\": true,\n        \"reused\": true,\n        \"landing_attempt\": true,\n        \"landing_success\": true,\n        \"landing_type\": \"ASDS\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 1091,\n        \"gridfins\": false,\n        \"legs\": true,\n        \"reused\": true,\n        \"landing_attempt\": true,\n        \"landing_success\": true,\n        \"landing_type\": \"ASDS\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"failures\": [\n      {\n        \"time\": 1597,\n        \"altitude\": 5361,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 7146,\n        \"altitude\": 6827,\n        \"reason\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"https://jnrwHpsjYhQVlWDlr.lweDXKrPXtm5Rl,b04W5C6BxfS+Y2IVItlY\",\n        \"large\": \"https://TtKDtEzfFOZWuiXKHTHvlV.voxN032Y5H12LbYGm-JLy5NnrqDNjJOo9OJYcINutpINlvRlFEItp2T7sHOx.uPIFSI3VLtD-O\"\n      },\n      \"reddit\": {\n        \"campaign\": \"https://yQY.wdgA8L\",\n        \"launch\": \"https://wxutPzhixWRKQiAvenxxvoLTVgXUvJO.qxnix3\",\n        \"media\": \"https://PwECLXCmkqmkrWpiLQXWlSslS.hgyNcPBrbJoNbU+ExMMcrIxBW-BLuMUjTetIiPL0uxgNX1NT39sMi2UN5QA9,MPTRV,M8cRA9aabvq9cil\",\n        \"recovery\": \"https://yejnNocwNJlxUQ.mwa.lccdiAxj1myiuJEzdshfAOwly3G14QjT5vwtE,oIdmnTzq+nwh\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"http://tIlnpdRZJPQOMtQiQGWHRILcwTZ.tqjmM\",\n          \"http://SAfvKu.usB+RGzf\"\n        ],\n        \"original\": [\n          \"https://JsCBnuYHpRT.ldwtdcBRyayixCfCECjhBtuWnQVg-d1CecGzRUjaMOx06JFaYLXYfI\",\n          \"https://QHdKRMQwRoiRaVNKKkGnMVMlx.xpbyXXudQbqhJOAYlF+sOGcgNKk0U\"\n        ]\n      },\n      \"presskit\": \"https://VGIAsrEaHGPNmApvZieMmEQlv.ktgEascjMi7xk\",\n      \"webcast\": \"http://uKRYOQzn.uebtWr\",\n      \"youtube_id\": \"string\",\n      \"article\": \"http://CJANQwYoY.nyqonH9zWrwOY,aQ7mTAQ4MveZ1FWSXvof0smTxFy80\",\n      \"wikipedia\": \"https://EdNmQmgbvQrZZHgGbdbPPtfR.mub8VDrsJcnL2anej1aWmWAwR3dzgVXVjLTnaA57E\"\n    },\n    \"fairings\": {\n      \"reused\": false,\n      \"recovery_attempt\": false,\n      \"recovered\": true,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"net\": false,\n    \"window\": 7963,\n    \"auto_update\": false,\n    \"tbd\": false,\n    \"launch_library_id\": \"c0d27249-cfe0-1ecf-c03a-b2fb3a3141d5\"\n  },\n  {\n    \"id\": \"62dd70d5202306255024d139\",\n    \"name\": \"Crew-5\",\n    \"flight_number\": 187,\n    \"date_utc\": \"2022-10-05T16:00:00.000Z\",\n    \"date_unix\": 1664985600,\n    \"date_local\": \"2022-10-05T12:00:00-04:00\",\n    \"date_precision\": \"quarter\",\n    \"upcoming\": false,\n    \"success\": true,\n    \"details\": \"string\",\n    \"rocket\": \"5e9d0d95eda69973a809d1ec\",\n    \"launchpad\": \"5e9e4502f509094188566f88\",\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 8359,\n        \"gridfins\": false,\n        \"legs\": false,\n        \"reused\": true,\n        \"landing_attempt\": false,\n        \"landing_success\": true,\n        \"landing_type\": \"ASDS\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 3503,\n        \"gridfins\": true,\n        \"legs\": false,\n        \"reused\": false,\n        \"landing_attempt\": false,\n        \"landing_success\": true,\n        \"landing_type\": \"ASDS\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"failures\": [\n      {\n        \"time\": 1620,\n        \"altitude\": 2938,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 2756,\n        \"altitude\": 4071,\n        \"reason\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"http://cDLSMYeMHCJERTLrJFruccKsRuhcUQG.kds8+wXbk5eq8LL.JwfwtTOGW4XmxNt\",\n        \"large\": \"https://jkQwimKEOyDdtPbJUrBzLRaNA.koarEeyGT-+F+uyEQpaz6aC-DHnn9WcFP+u85IpxFSl1xqsi3khfaiBZkfdZ7\"\n      },\n      \"reddit\": {\n        \"campaign\": \"https://SPePvv.emqcJwhEecgSyKb09nW,RAg7xdaPJP5yK2K+Is0tGGC334CPqKvUzELIq0UikAMiQZFeV26m9\",\n        \"launch\": \"http://tCJcQhruZI.fomlp0US9hKs93.FhIZgZO+SWhMv28sYkUIHr3K5q,B\",\n        \"media\": \"http://LSmxbd.yiqxrdRNVgN9.D-.JS4XXacD3N\",\n        \"recovery\": \"https://mnNrKORZFBOlvvGspGoiTKDxghgl.rmmfUqHyyr\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"https://UPYPwsuaYAcpmDxfCcwkaYgwWXpUxbT.pvxvjq.L8CiyikRdefJBQiMHOtmA+RsjM-8eJ2s81mRI-EzNfsA.mORPnf1F\",\n          \"http://yGkJPNLQbOEKPJPTxRuDEfMs.mppyGOsp\"\n        ],\n        \"original\": [\n          \"http://APjWztsc.suYEpKAHIjvbQAlN4Zj3Sf3Quhi84RiGe,xGka,G+P+E39YGs8kJnH\",\n          \"http://qUnJPnDtxoeFindYs.lbgkzNp0.6g2Do\"\n        ]\n      },\n      \"presskit\": \"http://f.bvtdWR7GDxZcawGa9KRCxnwUfTcXgjI2RvrXlAZoo\",\n      \"webcast\": \"http://UVQGbPMTDkegWahdCzRTeIyKsyEE.scdYSKEoMXxFt2bcrh+kDZCjUcW8llupbBFYqDKkz9aBkC5PU7aV-w6JyW0MR\",\n      \"youtube_id\": \"string\",\n      \"article\": \"https://SpWKtBkakPryzITXMMgzeSrExgyDA.ngnVQvCQE7sWaBAKYR-ChRS-FNt7mHZoaQ+UNaQWRK-ePw-S6jmo7V\",\n      \"wikipedia\": \"http://HqxPtkialHJfISVALLjCmlNIdmp.haKt1JtPMO\"\n    },\n    \"fairings\": {\n      \"reused\": true,\n      \"recovery_attempt\": true,\n      \"recovered\": true,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"net\": false,\n    \"window\": 5750,\n    \"auto_update\": true,\n    \"tbd\": true,\n    \"launch_library_id\": \"5179f90e-e0ac-e4ba-bb76-c4c1b5d4158d\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e13b151-1f2f-42af-a928-e3d7f600f600",
+          "name": "List Past Launches",
+          "request": {
+            "name": "List Past Launches",
+            "description": {
+              "content": "Returns all past SpaceX launches",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "launches",
+                "past"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5807ad0e-a6b2-4a73-9e79-a81afe41bcaa",
+              "name": "Array of past launch objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "launches",
+                    "past"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"62dd70d5202306255024d139\",\n    \"name\": \"Crew-5\",\n    \"flight_number\": 187,\n    \"date_utc\": \"2022-10-05T16:00:00.000Z\",\n    \"date_unix\": 1664985600,\n    \"date_local\": \"2022-10-05T12:00:00-04:00\",\n    \"date_precision\": \"half\",\n    \"upcoming\": false,\n    \"success\": true,\n    \"details\": \"string\",\n    \"rocket\": \"5e9d0d95eda69973a809d1ec\",\n    \"launchpad\": \"5e9e4502f509094188566f88\",\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 3888,\n        \"gridfins\": false,\n        \"legs\": true,\n        \"reused\": true,\n        \"landing_attempt\": true,\n        \"landing_success\": true,\n        \"landing_type\": \"ASDS\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 1091,\n        \"gridfins\": false,\n        \"legs\": true,\n        \"reused\": true,\n        \"landing_attempt\": true,\n        \"landing_success\": true,\n        \"landing_type\": \"ASDS\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"failures\": [\n      {\n        \"time\": 1597,\n        \"altitude\": 5361,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 7146,\n        \"altitude\": 6827,\n        \"reason\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"https://jnrwHpsjYhQVlWDlr.lweDXKrPXtm5Rl,b04W5C6BxfS+Y2IVItlY\",\n        \"large\": \"https://TtKDtEzfFOZWuiXKHTHvlV.voxN032Y5H12LbYGm-JLy5NnrqDNjJOo9OJYcINutpINlvRlFEItp2T7sHOx.uPIFSI3VLtD-O\"\n      },\n      \"reddit\": {\n        \"campaign\": \"https://yQY.wdgA8L\",\n        \"launch\": \"https://wxutPzhixWRKQiAvenxxvoLTVgXUvJO.qxnix3\",\n        \"media\": \"https://PwECLXCmkqmkrWpiLQXWlSslS.hgyNcPBrbJoNbU+ExMMcrIxBW-BLuMUjTetIiPL0uxgNX1NT39sMi2UN5QA9,MPTRV,M8cRA9aabvq9cil\",\n        \"recovery\": \"https://yejnNocwNJlxUQ.mwa.lccdiAxj1myiuJEzdshfAOwly3G14QjT5vwtE,oIdmnTzq+nwh\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"http://tIlnpdRZJPQOMtQiQGWHRILcwTZ.tqjmM\",\n          \"http://SAfvKu.usB+RGzf\"\n        ],\n        \"original\": [\n          \"https://JsCBnuYHpRT.ldwtdcBRyayixCfCECjhBtuWnQVg-d1CecGzRUjaMOx06JFaYLXYfI\",\n          \"https://QHdKRMQwRoiRaVNKKkGnMVMlx.xpbyXXudQbqhJOAYlF+sOGcgNKk0U\"\n        ]\n      },\n      \"presskit\": \"https://VGIAsrEaHGPNmApvZieMmEQlv.ktgEascjMi7xk\",\n      \"webcast\": \"http://uKRYOQzn.uebtWr\",\n      \"youtube_id\": \"string\",\n      \"article\": \"http://CJANQwYoY.nyqonH9zWrwOY,aQ7mTAQ4MveZ1FWSXvof0smTxFy80\",\n      \"wikipedia\": \"https://EdNmQmgbvQrZZHgGbdbPPtfR.mub8VDrsJcnL2anej1aWmWAwR3dzgVXVjLTnaA57E\"\n    },\n    \"fairings\": {\n      \"reused\": false,\n      \"recovery_attempt\": false,\n      \"recovered\": true,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"net\": false,\n    \"window\": 7963,\n    \"auto_update\": false,\n    \"tbd\": false,\n    \"launch_library_id\": \"c0d27249-cfe0-1ecf-c03a-b2fb3a3141d5\"\n  },\n  {\n    \"id\": \"62dd70d5202306255024d139\",\n    \"name\": \"Crew-5\",\n    \"flight_number\": 187,\n    \"date_utc\": \"2022-10-05T16:00:00.000Z\",\n    \"date_unix\": 1664985600,\n    \"date_local\": \"2022-10-05T12:00:00-04:00\",\n    \"date_precision\": \"quarter\",\n    \"upcoming\": false,\n    \"success\": true,\n    \"details\": \"string\",\n    \"rocket\": \"5e9d0d95eda69973a809d1ec\",\n    \"launchpad\": \"5e9e4502f509094188566f88\",\n    \"payloads\": [\n      \"string\",\n      \"string\"\n    ],\n    \"capsules\": [\n      \"string\",\n      \"string\"\n    ],\n    \"crew\": [\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      },\n      {\n        \"crew\": \"string\",\n        \"role\": \"Commander\"\n      }\n    ],\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ],\n    \"cores\": [\n      {\n        \"core\": \"string\",\n        \"flight\": 8359,\n        \"gridfins\": false,\n        \"legs\": false,\n        \"reused\": true,\n        \"landing_attempt\": false,\n        \"landing_success\": true,\n        \"landing_type\": \"ASDS\",\n        \"landpad\": \"string\"\n      },\n      {\n        \"core\": \"string\",\n        \"flight\": 3503,\n        \"gridfins\": true,\n        \"legs\": false,\n        \"reused\": false,\n        \"landing_attempt\": false,\n        \"landing_success\": true,\n        \"landing_type\": \"ASDS\",\n        \"landpad\": \"string\"\n      }\n    ],\n    \"failures\": [\n      {\n        \"time\": 1620,\n        \"altitude\": 2938,\n        \"reason\": \"string\"\n      },\n      {\n        \"time\": 2756,\n        \"altitude\": 4071,\n        \"reason\": \"string\"\n      }\n    ],\n    \"links\": {\n      \"patch\": {\n        \"small\": \"http://cDLSMYeMHCJERTLrJFruccKsRuhcUQG.kds8+wXbk5eq8LL.JwfwtTOGW4XmxNt\",\n        \"large\": \"https://jkQwimKEOyDdtPbJUrBzLRaNA.koarEeyGT-+F+uyEQpaz6aC-DHnn9WcFP+u85IpxFSl1xqsi3khfaiBZkfdZ7\"\n      },\n      \"reddit\": {\n        \"campaign\": \"https://SPePvv.emqcJwhEecgSyKb09nW,RAg7xdaPJP5yK2K+Is0tGGC334CPqKvUzELIq0UikAMiQZFeV26m9\",\n        \"launch\": \"http://tCJcQhruZI.fomlp0US9hKs93.FhIZgZO+SWhMv28sYkUIHr3K5q,B\",\n        \"media\": \"http://LSmxbd.yiqxrdRNVgN9.D-.JS4XXacD3N\",\n        \"recovery\": \"https://mnNrKORZFBOlvvGspGoiTKDxghgl.rmmfUqHyyr\"\n      },\n      \"flickr\": {\n        \"small\": [\n          \"https://UPYPwsuaYAcpmDxfCcwkaYgwWXpUxbT.pvxvjq.L8CiyikRdefJBQiMHOtmA+RsjM-8eJ2s81mRI-EzNfsA.mORPnf1F\",\n          \"http://yGkJPNLQbOEKPJPTxRuDEfMs.mppyGOsp\"\n        ],\n        \"original\": [\n          \"http://APjWztsc.suYEpKAHIjvbQAlN4Zj3Sf3Quhi84RiGe,xGka,G+P+E39YGs8kJnH\",\n          \"http://qUnJPnDtxoeFindYs.lbgkzNp0.6g2Do\"\n        ]\n      },\n      \"presskit\": \"http://f.bvtdWR7GDxZcawGa9KRCxnwUfTcXgjI2RvrXlAZoo\",\n      \"webcast\": \"http://UVQGbPMTDkegWahdCzRTeIyKsyEE.scdYSKEoMXxFt2bcrh+kDZCjUcW8llupbBFYqDKkz9aBkC5PU7aV-w6JyW0MR\",\n      \"youtube_id\": \"string\",\n      \"article\": \"https://SpWKtBkakPryzITXMMgzeSrExgyDA.ngnVQvCQE7sWaBAKYR-ChRS-FNt7mHZoaQ+UNaQWRK-ePw-S6jmo7V\",\n      \"wikipedia\": \"http://HqxPtkialHJfISVALLjCmlNIdmp.haKt1JtPMO\"\n    },\n    \"fairings\": {\n      \"reused\": true,\n      \"recovery_attempt\": true,\n      \"recovered\": true,\n      \"ships\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"net\": false,\n    \"window\": 5750,\n    \"auto_update\": true,\n    \"tbd\": true,\n    \"launch_library_id\": \"5179f90e-e0ac-e4ba-bb76-c4c1b5d4158d\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed4eda52-be17-4b99-bb74-dae9b4b128f4",
+          "name": "Get Launch",
+          "request": {
+            "name": "Get Launch",
+            "description": {
+              "content": "Returns a single SpaceX launch by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "launches",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique launch identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd93903f-c2e6-4ecc-8e60-df71e30a1953",
+              "name": "Launch object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "launches",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique launch identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"62dd70d5202306255024d139\",\n  \"name\": \"Crew-5\",\n  \"flight_number\": 187,\n  \"date_utc\": \"2022-10-05T16:00:00.000Z\",\n  \"date_unix\": 1664985600,\n  \"date_local\": \"2022-10-05T12:00:00-04:00\",\n  \"date_precision\": \"day\",\n  \"upcoming\": false,\n  \"success\": true,\n  \"details\": \"string\",\n  \"rocket\": \"5e9d0d95eda69973a809d1ec\",\n  \"launchpad\": \"5e9e4502f509094188566f88\",\n  \"payloads\": [\n    \"string\",\n    \"string\"\n  ],\n  \"capsules\": [\n    \"string\",\n    \"string\"\n  ],\n  \"crew\": [\n    {\n      \"crew\": \"string\",\n      \"role\": \"Commander\"\n    },\n    {\n      \"crew\": \"string\",\n      \"role\": \"Commander\"\n    }\n  ],\n  \"ships\": [\n    \"string\",\n    \"string\"\n  ],\n  \"cores\": [\n    {\n      \"core\": \"string\",\n      \"flight\": 82,\n      \"gridfins\": true,\n      \"legs\": false,\n      \"reused\": true,\n      \"landing_attempt\": false,\n      \"landing_success\": true,\n      \"landing_type\": \"RTLS\",\n      \"landpad\": \"string\"\n    },\n    {\n      \"core\": \"string\",\n      \"flight\": 9136,\n      \"gridfins\": true,\n      \"legs\": false,\n      \"reused\": true,\n      \"landing_attempt\": false,\n      \"landing_success\": true,\n      \"landing_type\": \"RTLS\",\n      \"landpad\": \"string\"\n    }\n  ],\n  \"failures\": [\n    {\n      \"time\": 5141,\n      \"altitude\": 4199,\n      \"reason\": \"string\"\n    },\n    {\n      \"time\": 3373,\n      \"altitude\": 7993,\n      \"reason\": \"string\"\n    }\n  ],\n  \"links\": {\n    \"patch\": {\n      \"small\": \"http://j.isqYbyBCawl,hdGAwcZBeCeRZQGb7namVF8w,MCU\",\n      \"large\": \"http://bBnyFayiHiCgRIccmJC.ahDRisU8H\"\n    },\n    \"reddit\": {\n      \"campaign\": \"https://hnC.izyt4PMyIu,1o\",\n      \"launch\": \"https://tVJOIdoCKGMZZlpFulubtBBIjTI.etpC\",\n      \"media\": \"http://nNPOqdbGHjWyAFkurMKckIacbvHaFH.rtamuYdcCcPdzD5Q0Vp.IpJZ6up1WW78+yMrTj6Sz4IEOebtTGbNMbxG\",\n      \"recovery\": \"https://GIiOyXgZUNAAcoLuOrq.fustgqLlbFlCPfslFT\"\n    },\n    \"flickr\": {\n      \"small\": [\n        \"https://kinLtaEHLtYZ.ibw8b+6qTwd0WEfwh0AEpV3FREIspKgIWVsyofwja+C8\",\n        \"http://JiIyqsfHSimKJpaCxRtxDSiyyZPidEA.zszfvJgduDZuOHhrP2vSLlM28z6BlB,+GosOe05F2iED\"\n      ],\n      \"original\": [\n        \"http://kgiqbfqVNQHtDIrQVtJXDwZZYS.ztgoS2cf7lE48a,WYhtakraPGzHV6YTahpKZPNHX+SRJAo.h\",\n        \"http://FMbojo.wpbNAG2CJ5j1Dv\"\n      ]\n    },\n    \"presskit\": \"https://hRVOYQAzIIzgVyIWvlJnRfxbuRJWkPL.gmDoDxB3arNOyYnyVColY8e+ZOm3TuNM2GBRUHb0-\",\n    \"webcast\": \"http://U.jmWvM5gEKiEgHuhyJVnX1VLmmo5bH2J+BehL8Ul+qnyewnZ1c1dq66nR\",\n    \"youtube_id\": \"string\",\n    \"article\": \"http://IhoFBlDaaOyunLTKspnigkllrnP.xvef0RNlmuLj1yHivY0foM.7qKxR1sjxi3oUoV.SJcjwj4\",\n    \"wikipedia\": \"https://XjONID.kxpcwgsOP,HAc.NvHdafQLfBCQM62VzSgrZjTcdo9Vz.Cu023JjCFrB8qmwimWS\"\n  },\n  \"fairings\": {\n    \"reused\": false,\n    \"recovery_attempt\": true,\n    \"recovered\": false,\n    \"ships\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  \"net\": false,\n  \"window\": 2077,\n  \"auto_update\": false,\n  \"tbd\": false,\n  \"launch_library_id\": \"e33e11f6-e19e-36d5-aa69-72c64e84f99a\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "414bd3a3-524c-493c-a136-3de04d839d7a",
+              "name": "Launch not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "launches",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique launch identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "94e5e65a-d5e0-45ae-83f1-082695d6201a",
+          "name": "Query Launches",
+          "request": {
+            "name": "Query Launches",
+            "description": {
+              "content": "Query launches with MongoDB-style filters, pagination, and field population",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "launches",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"key_0\": 4936\n  },\n  \"options\": {\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"populate\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"select\": {\n      \"key_0\": \"<integer>\",\n      \"key_1\": \"<integer>\",\n      \"key_2\": \"<integer>\",\n      \"key_3\": \"<integer>\"\n    },\n    \"sort\": {\n      \"key_0\": \"<integer>\",\n      \"key_1\": \"<integer>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "718be8e0-cc77-4f53-8658-7689cca3054f",
+              "name": "Paginated query result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "launches",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": {\n    \"key_0\": 9532,\n    \"key_1\": 9096\n  },\n  \"options\": {\n    \"limit\": \"<integer>\",\n    \"offset\": \"<integer>\",\n    \"page\": \"<integer>\",\n    \"populate\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"select\": {\n      \"key_0\": \"<integer>\"\n    },\n    \"sort\": {\n      \"key_0\": \"<integer>\",\n      \"key_1\": \"<integer>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalDocs\": 3102,\n  \"offset\": 3287,\n  \"limit\": 2536,\n  \"totalPages\": 6900,\n  \"page\": 340,\n  \"pagingCounter\": 6715,\n  \"hasPrevPage\": false,\n  \"hasNextPage\": false,\n  \"prevPage\": 6099,\n  \"nextPage\": 6470\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com/v5",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "344b24d5-087b-4c63-b333-e9d6f4bbd660",
+    "name": "SpaceX Capsules Launches API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.\n\nContact Support:\n Name: SpaceX API Community",
+      "type": "text/plain"
+    }
+  }
+}

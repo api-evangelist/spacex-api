@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX Capsules Landing Pads API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Landing Pads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Landing Pads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/landpads"
+          },
+          "docs": "Returns all SpaceX landing pads including ASDS drone ships and ground pads"
+        },
+        {
+          "info": {
+            "name": "Get Landing Pad",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/landpads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique landing pad identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single landing pad by its unique ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

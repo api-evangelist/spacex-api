@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "c7b23b7e-c603-4aaf-9e33-2d29d71e48f4",
+      "name": "Ships",
+      "description": {
+        "content": "SpaceX fleet ship data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5c2ea118-9386-4849-86ad-c639b5180b7e",
+          "name": "List All Ships",
+          "request": {
+            "name": "List All Ships",
+            "description": {
+              "content": "Returns all SpaceX fleet vessels including drone ships, fairing recovery vessels, and crew ships",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ships"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f0537c4-f6fb-4413-b8bc-a59a9007391b",
+              "name": "Array of ship objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ships"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"legacy_id\": \"string\",\n    \"model\": \"string\",\n    \"type\": \"string\",\n    \"roles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"active\": false,\n    \"imo\": 5944,\n    \"mmsi\": 6932,\n    \"abs\": 1939,\n    \"class\": 5408,\n    \"mass_kg\": 8346.303881231544,\n    \"mass_lbs\": 1173.5274205881963,\n    \"year_built\": 9974,\n    \"home_port\": \"string\",\n    \"status\": \"string\",\n    \"speed_kn\": 9593.93353346844,\n    \"course_deg\": 2169.2860487144117,\n    \"latitude\": 6685.142393929169,\n    \"longitude\": 8532.23814569612,\n    \"link\": \"http://xLBAeODScY.mwUMjFepFTwOAizwv71q.\",\n    \"image\": \"http://kfviocvakL.nulsny05gzQBCVgFrCEsxWg\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"legacy_id\": \"string\",\n    \"model\": \"string\",\n    \"type\": \"string\",\n    \"roles\": [\n      \"string\",\n      \"string\"\n    ],\n    \"active\": true,\n    \"imo\": 4803,\n    \"mmsi\": 6264,\n    \"abs\": 6872,\n    \"class\": 4735,\n    \"mass_kg\": 181.6527570974602,\n    \"mass_lbs\": 7574.235293241737,\n    \"year_built\": 9629,\n    \"home_port\": \"string\",\n    \"status\": \"string\",\n    \"speed_kn\": 511.3401204316448,\n    \"course_deg\": 9912.518202529964,\n    \"latitude\": 2159.687093512572,\n    \"longitude\": 9560.306562705608,\n    \"link\": \"http://ueQohlGGNzPFo.brupAS-PKKDyzYsblwxrDg8axKIQEogf.kKDTRjCoHnhZafy9Wh,5Z-VoYji7rMv3qkmxr\",\n    \"image\": \"http://YPVJlfWNMRByamFLplMIFpakhYwpiV.kkrcvgeytnG6JytPtirH\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "605f44c0-34f5-4030-a0a7-831097c962fb",
+          "name": "Get Ship",
+          "request": {
+            "name": "Get Ship",
+            "description": {
+              "content": "Returns a single ship by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ships",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique ship identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f474a901-e537-4b47-8724-9af2e31bb1c6",
+              "name": "Ship object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ships",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique ship identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"legacy_id\": \"string\",\n  \"model\": \"string\",\n  \"type\": \"string\",\n  \"roles\": [\n    \"string\",\n    \"string\"\n  ],\n  \"active\": false,\n  \"imo\": 8380,\n  \"mmsi\": 9247,\n  \"abs\": 4258,\n  \"class\": 9033,\n  \"mass_kg\": 3039.4087828011916,\n  \"mass_lbs\": 3985.4885416480834,\n  \"year_built\": 2458,\n  \"home_port\": \"string\",\n  \"status\": \"string\",\n  \"speed_kn\": 7817.722140997172,\n  \"course_deg\": 354.7110178156454,\n  \"latitude\": 3671.0489584090756,\n  \"longitude\": 8976.355418523559,\n  \"link\": \"https://enmopdECCZnSqAVvfab.pzeiqtK0UqcN0RV7f.JK2SsX,TVTmwh+R\",\n  \"image\": \"https://CtLAfYpuTr.dhHLOEOWAZdelW42eZpit4Tiwe+7Dls.Iqhn5n-L7TmSAbKnU+H3PtV-EMvSs-.az6SgUnPcg35oW\",\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com/v5",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8ddf89d9-293d-466c-86ad-faea7fb44bf2",
+    "name": "SpaceX Capsules Ships API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.\n\nContact Support:\n Name: SpaceX API Community",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "f30c09c7-9568-4709-9453-ee6308a99c47",
+      "name": "Starlink",
+      "description": {
+        "content": "SpaceX Starlink satellite data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8df0ba02-65db-4d44-bce3-40a0098ae9ee",
+          "name": "List All Starlink Satellites",
+          "request": {
+            "name": "List All Starlink Satellites",
+            "description": {
+              "content": "Returns all Starlink satellite constellation data including orbital parameters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "starlink"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "abf57c8e-ae6e-4644-8677-98cd3e6d7c04",
+              "name": "Array of Starlink satellite objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "starlink"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"version\": \"string\",\n    \"launch\": \"string\",\n    \"spaceTrack\": {\n      \"key_0\": 7018,\n      \"key_1\": 6789,\n      \"key_2\": 7495\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"version\": \"string\",\n    \"launch\": \"string\",\n    \"spaceTrack\": {\n      \"key_0\": 8068.407257944253,\n      \"key_1\": 2938.8593972673884\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80478489-bf4c-474c-a6d6-bf728ea807ec",
+          "name": "Get Starlink Satellite",
+          "request": {
+            "name": "Get Starlink Satellite",
+            "description": {
+              "content": "Returns a single Starlink satellite by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "starlink",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique Starlink satellite identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f83714e5-f026-45ec-8bfb-eb6c2488eb7f",
+              "name": "Starlink satellite object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "starlink",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique Starlink satellite identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"version\": \"string\",\n  \"launch\": \"string\",\n  \"spaceTrack\": {\n    \"key_0\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com/v5",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4f62e390-1906-4c60-9165-c879d2462c2e",
+    "name": "SpaceX Capsules Starlink API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.\n\nContact Support:\n Name: SpaceX API Community",
+      "type": "text/plain"
+    }
+  }
+}

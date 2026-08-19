@@ -1,0 +1,228 @@
+{
+  "item": [
+    {
+      "id": "8ecc6c3e-9a32-4f6a-83af-4b6a6bbf79e6",
+      "name": "Rockets",
+      "description": {
+        "content": "SpaceX rocket vehicle data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b97d15b9-017b-4a2a-a6d1-37a5b6235c9c",
+          "name": "List All Rockets",
+          "request": {
+            "name": "List All Rockets",
+            "description": {
+              "content": "Returns all SpaceX rocket vehicles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rockets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac5c9abd-fc3b-4562-af18-8e7a098efac6",
+              "name": "Array of rocket objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rockets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"active\": false,\n    \"stages\": 1470,\n    \"boosters\": 7671,\n    \"cost_per_launch\": 3907,\n    \"success_rate_pct\": 620,\n    \"first_flight\": \"string\",\n    \"country\": \"string\",\n    \"company\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"active\": true,\n    \"stages\": 6731,\n    \"boosters\": 814,\n    \"cost_per_launch\": 6822,\n    \"success_rate_pct\": 5837,\n    \"first_flight\": \"string\",\n    \"country\": \"string\",\n    \"company\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0ff0d07-985e-4572-bb60-bda1d2559d5a",
+          "name": "Get Rocket",
+          "request": {
+            "name": "Get Rocket",
+            "description": {
+              "content": "Returns a single SpaceX rocket by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "rockets",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique rocket identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7714076-d69f-4ecb-9fc4-9652ca1c4d54",
+              "name": "Rocket object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rockets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique rocket identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"active\": false,\n  \"stages\": 8876,\n  \"boosters\": 8172,\n  \"cost_per_launch\": 7830,\n  \"success_rate_pct\": 6569,\n  \"first_flight\": \"string\",\n  \"country\": \"string\",\n  \"company\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddd8edbf-953e-4598-b78e-20d1cf812542",
+              "name": "Rocket not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "rockets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique rocket identifier"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com/v5",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2ae63f02-1e0e-4ea0-927e-0cdbca2fb973",
+    "name": "SpaceX Capsules Rockets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.\n\nContact Support:\n Name: SpaceX API Community",
+      "type": "text/plain"
+    }
+  }
+}

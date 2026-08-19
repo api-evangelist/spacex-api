@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "11b86410-88c1-4153-90db-179c2adc7fa9",
+      "name": "Landing Pads",
+      "description": {
+        "content": "SpaceX landing pad data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1051d7f-a10d-477c-a18a-abc72b7f4756",
+          "name": "List All Landing Pads",
+          "request": {
+            "name": "List All Landing Pads",
+            "description": {
+              "content": "Returns all SpaceX landing pads including ASDS drone ships and ground pads",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "landpads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01ad6081-6785-4d99-b1a6-d5bb3d430268",
+              "name": "Array of landing pad objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "landpads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"full_name\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"locality\": \"string\",\n    \"region\": \"string\",\n    \"latitude\": 1628.520372744593,\n    \"longitude\": 8768.465353721518,\n    \"landing_attempts\": 9769,\n    \"landing_successes\": 6131,\n    \"wikipedia\": \"http://kvLSJouzmaNTKN.zvphFcLnKAGjhJroCSXxpGfQ+BtQfs.klO-ZRhfl6.\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"full_name\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"locality\": \"string\",\n    \"region\": \"string\",\n    \"latitude\": 768.257785935309,\n    \"longitude\": 80.86740466970555,\n    \"landing_attempts\": 1215,\n    \"landing_successes\": 6812,\n    \"wikipedia\": \"https://qDWhiDcTGLwLvVkZLHRqxBBDMlMeL.rknvStS,URpkFLek7XS5TJU6\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e9dd609-fde2-47f9-8efb-40e7a88772bb",
+          "name": "Get Landing Pad",
+          "request": {
+            "name": "Get Landing Pad",
+            "description": {
+              "content": "Returns a single landing pad by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "landpads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique landing pad identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f236d0b3-d218-4154-80eb-e258d223f278",
+              "name": "Landing pad object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "landpads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique landing pad identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"full_name\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"string\",\n  \"locality\": \"string\",\n  \"region\": \"string\",\n  \"latitude\": 4739.305935470974,\n  \"longitude\": 8303.357010863516,\n  \"landing_attempts\": 8347,\n  \"landing_successes\": 7061,\n  \"wikipedia\": \"https://lWUpmoKFFsFudYcjiOKM.auMXhg1-0nsyOx9kBaE\",\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com/v5",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "128ed970-99e1-4944-8e50-d2ed16e9fc18",
+    "name": "SpaceX Capsules Landing Pads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.\n\nContact Support:\n Name: SpaceX API Community",
+      "type": "text/plain"
+    }
+  }
+}

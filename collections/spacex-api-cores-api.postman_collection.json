@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "9c217c66-aa7e-46c1-8efe-cc5f8b2f417f",
+      "name": "Cores",
+      "description": {
+        "content": "SpaceX first stage booster core data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c0972547-a3e9-4ce3-9d90-275d443e8c1e",
+          "name": "List All Cores",
+          "request": {
+            "name": "List All Cores",
+            "description": {
+              "content": "Returns all SpaceX first-stage booster core units with landing history",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cores"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f911d47-531a-4240-bce6-b59bbde338ed",
+              "name": "Array of core objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"serial\": \"string\",\n    \"status\": \"string\",\n    \"reuse_count\": 3357,\n    \"rtls_attempts\": 1763,\n    \"rtls_landings\": 5174,\n    \"asds_attempts\": 1235,\n    \"asds_landings\": 290,\n    \"last_update\": \"string\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"serial\": \"string\",\n    \"status\": \"string\",\n    \"reuse_count\": 4326,\n    \"rtls_attempts\": 6477,\n    \"rtls_landings\": 1286,\n    \"asds_attempts\": 6278,\n    \"asds_landings\": 5431,\n    \"last_update\": \"string\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "568ed72b-7ef9-47dd-997e-0d9c8af1385f",
+          "name": "Get Core",
+          "request": {
+            "name": "Get Core",
+            "description": {
+              "content": "Returns a single SpaceX booster core by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cores",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique core identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a49a0e9c-2841-4b7b-8927-2144118458f9",
+              "name": "Core object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cores",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique core identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"serial\": \"string\",\n  \"status\": \"string\",\n  \"reuse_count\": 1408,\n  \"rtls_attempts\": 6962,\n  \"rtls_landings\": 9834,\n  \"asds_attempts\": 8941,\n  \"asds_landings\": 1822,\n  \"last_update\": \"string\",\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com/v5",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f55990d2-1cee-408c-a10f-3b3c00e36379",
+    "name": "SpaceX Capsules Cores API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.\n\nContact Support:\n Name: SpaceX API Community",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "629c8cec-9bdd-4f79-9fb4-0d7606835e3a",
+      "name": "Payloads",
+      "description": {
+        "content": "SpaceX payload data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "85fdadb8-f785-4a77-9e0c-ea525ef0fc93",
+          "name": "List All Payloads",
+          "request": {
+            "name": "List All Payloads",
+            "description": {
+              "content": "Returns all SpaceX payload manifests including satellites, cargo, and crew vehicles",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payloads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f48c8cb-aa2f-4463-85be-85110e294873",
+              "name": "Array of payload objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payloads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"reused\": true,\n    \"launch\": \"string\",\n    \"customers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"nationalities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"manufacturers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"mass_kg\": 4374.538109825257,\n    \"mass_lbs\": 4002.4273012634594,\n    \"orbit\": \"string\",\n    \"reference_system\": \"string\",\n    \"regime\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"reused\": true,\n    \"launch\": \"string\",\n    \"customers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"nationalities\": [\n      \"string\",\n      \"string\"\n    ],\n    \"manufacturers\": [\n      \"string\",\n      \"string\"\n    ],\n    \"mass_kg\": 1819.5722812798222,\n    \"mass_lbs\": 9254.582010416152,\n    \"orbit\": \"string\",\n    \"reference_system\": \"string\",\n    \"regime\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdff35cb-130b-4a6d-a1d6-2a43a673a9bf",
+          "name": "Get Payload",
+          "request": {
+            "name": "Get Payload",
+            "description": {
+              "content": "Returns a single payload by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "payloads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique payload identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9db696ba-38bc-44e1-8303-81b83d9bf5f0",
+              "name": "Payload object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "payloads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique payload identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"string\",\n  \"reused\": true,\n  \"launch\": \"string\",\n  \"customers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"nationalities\": [\n    \"string\",\n    \"string\"\n  ],\n  \"manufacturers\": [\n    \"string\",\n    \"string\"\n  ],\n  \"mass_kg\": 4548.975100762781,\n  \"mass_lbs\": 6881.568689000313,\n  \"orbit\": \"string\",\n  \"reference_system\": \"string\",\n  \"regime\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com/v5",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8f305161-a5f1-4013-8d47-5ac68b468e57",
+    "name": "SpaceX Capsules Payloads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.\n\nContact Support:\n Name: SpaceX API Community",
+      "type": "text/plain"
+    }
+  }
+}

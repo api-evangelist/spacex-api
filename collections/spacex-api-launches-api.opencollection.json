@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX Capsules Launches API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Launches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches"
+          },
+          "docs": "Returns all SpaceX launches including past and upcoming missions"
+        },
+        {
+          "info": {
+            "name": "Get Latest Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/latest"
+          },
+          "docs": "Returns the most recent SpaceX launch"
+        },
+        {
+          "info": {
+            "name": "Get Next Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/next"
+          },
+          "docs": "Returns the next scheduled SpaceX launch"
+        },
+        {
+          "info": {
+            "name": "List Upcoming Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/upcoming"
+          },
+          "docs": "Returns all future scheduled SpaceX launches"
+        },
+        {
+          "info": {
+            "name": "List Past Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/past"
+          },
+          "docs": "Returns all past SpaceX launches"
+        },
+        {
+          "info": {
+            "name": "Get Launch",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/launches/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique launch identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single SpaceX launch by its unique ID"
+        },
+        {
+          "info": {
+            "name": "Query Launches",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spacexdata.com/v5/launches/query",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query launches with MongoDB-style filters, pagination, and field population"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

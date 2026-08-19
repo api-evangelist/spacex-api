@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX Capsules Payloads API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payloads",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Payloads",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/payloads"
+          },
+          "docs": "Returns all SpaceX payload manifests including satellites, cargo, and crew vehicles"
+        },
+        {
+          "info": {
+            "name": "Get Payload",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/payloads/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique payload identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single payload by its unique ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

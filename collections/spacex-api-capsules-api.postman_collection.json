@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "ed37994e-400b-4977-85e3-0668ebc250af",
+      "name": "Capsules",
+      "description": {
+        "content": "SpaceX Dragon capsule data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "22ee8f9d-34be-416c-962d-cd1a78c9826b",
+          "name": "List All Capsules",
+          "request": {
+            "name": "List All Capsules",
+            "description": {
+              "content": "Returns all SpaceX Dragon capsule units with reuse history",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capsules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82d97454-8499-4533-9b44-a2199bb2c1e3",
+              "name": "Array of capsule objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"serial\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"dragon\": \"string\",\n    \"reuse_count\": 5609,\n    \"water_landings\": 2601,\n    \"land_landings\": 6585,\n    \"last_update\": \"string\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"serial\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"dragon\": \"string\",\n    \"reuse_count\": 1631,\n    \"water_landings\": 2608,\n    \"land_landings\": 2276,\n    \"last_update\": \"string\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b4f1752-8586-46eb-b364-977331dd8339",
+          "name": "Get Capsule",
+          "request": {
+            "name": "Get Capsule",
+            "description": {
+              "content": "Returns a single SpaceX capsule by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "capsules",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique capsule identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "094f4a76-ca76-4155-915e-feb8ee393f70",
+              "name": "Capsule object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "capsules",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique capsule identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"serial\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"string\",\n  \"dragon\": \"string\",\n  \"reuse_count\": 5813,\n  \"water_landings\": 1752,\n  \"land_landings\": 6426,\n  \"last_update\": \"string\",\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com/v5",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "64890201-86c3-4944-9dc6-4fa170d71df9",
+    "name": "SpaceX Capsules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.\n\nContact Support:\n Name: SpaceX API Community",
+      "type": "text/plain"
+    }
+  }
+}

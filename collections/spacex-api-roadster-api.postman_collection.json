@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "a5fea212-089e-47ef-86e4-0e2fc7f0468e",
+      "name": "Roadster",
+      "description": {
+        "content": "SpaceX Roadster tracking data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5e786472-00e1-4bf5-a12c-37e832da5064",
+          "name": "Get Roadster",
+          "request": {
+            "name": "Get Roadster",
+            "description": {
+              "content": "Returns real-time tracking data for Elon Musk's Tesla Roadster launched aboard Falcon Heavy",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "roadster"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a076e37b-6f1c-47a4-9256-d4920ecb4615",
+              "name": "Roadster tracking object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "roadster"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"launch_date_utc\": \"1988-02-01T06:21:14.316Z\",\n  \"launch_date_unix\": 5697,\n  \"launch_mass_kg\": 6173.36612486181,\n  \"norad_id\": 9594,\n  \"epoch_jd\": 5224.1635641839275,\n  \"orbit_type\": \"string\",\n  \"apoapsis_au\": 1188.7766113433106,\n  \"periapsis_au\": 7805.445328198733,\n  \"semi_major_axis_au\": 6708.044251073613,\n  \"eccentricity\": 6591.72589780874,\n  \"inclination\": 934.7925904277931,\n  \"speed_kph\": 679.8552474599651,\n  \"speed_mph\": 7348.51233624643,\n  \"earth_distance_km\": 324.9895638700173,\n  \"mars_distance_km\": 940.111864088754,\n  \"wikipedia\": \"http://DUB.wmthYOyPeNQER6D1T93curWrSjYRXDpXptd,VoEdtPBIv8X,p\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com/v5",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "de140cbb-f4cc-4d8d-b345-00a38e1c2b21",
+    "name": "SpaceX Capsules Roadster API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.\n\nContact Support:\n Name: SpaceX API Community",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "ff9c684d-bb88-45eb-a94c-7d21641430ba",
+      "name": "Launchpads",
+      "description": {
+        "content": "SpaceX launch site data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3efafbd7-c257-4ef8-a3c0-272717a5a38a",
+          "name": "List All Launchpads",
+          "request": {
+            "name": "List All Launchpads",
+            "description": {
+              "content": "Returns all SpaceX launch sites and their current operational status",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "launchpads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46587f32-da74-4dde-ab7e-bb7c4c9adce5",
+              "name": "Array of launchpad objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "launchpads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"full_name\": \"string\",\n    \"status\": \"string\",\n    \"locality\": \"string\",\n    \"region\": \"string\",\n    \"latitude\": 9129.500840658624,\n    \"longitude\": 3017.7619769776998,\n    \"launch_attempts\": 4262,\n    \"launch_successes\": 7664,\n    \"rockets\": [\n      \"string\",\n      \"string\"\n    ],\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"full_name\": \"string\",\n    \"status\": \"string\",\n    \"locality\": \"string\",\n    \"region\": \"string\",\n    \"latitude\": 4596.098677045259,\n    \"longitude\": 3133.217351546158,\n    \"launch_attempts\": 6013,\n    \"launch_successes\": 7054,\n    \"rockets\": [\n      \"string\",\n      \"string\"\n    ],\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "69759330-51ec-4abe-a6d4-942fbd5a7e93",
+          "name": "Get Launchpad",
+          "request": {
+            "name": "Get Launchpad",
+            "description": {
+              "content": "Returns a single launchpad by its unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "launchpads",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique launchpad identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4c5900f7-4280-447b-bd09-9c6cfa07ec53",
+              "name": "Launchpad object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "launchpads",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique launchpad identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"full_name\": \"string\",\n  \"status\": \"string\",\n  \"locality\": \"string\",\n  \"region\": \"string\",\n  \"latitude\": 4471.739665481193,\n  \"longitude\": 9739.113642742885,\n  \"launch_attempts\": 2732,\n  \"launch_successes\": 8215,\n  \"rockets\": [\n    \"string\",\n    \"string\"\n  ],\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com/v5",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b67a8b26-f494-4d56-96eb-99cc918fae2e",
+    "name": "SpaceX Capsules Launchpads API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.\n\nContact Support:\n Name: SpaceX API Community",
+      "type": "text/plain"
+    }
+  }
+}

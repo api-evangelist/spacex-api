@@ -1,0 +1,190 @@
+{
+  "item": [
+    {
+      "id": "66a0e237-fbee-431c-ab1f-45f11ba4d710",
+      "name": "Crew",
+      "description": {
+        "content": "SpaceX astronaut crew data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "41e441a4-945c-4c63-b0f5-e8b5d48c7fcf",
+          "name": "List All Crew",
+          "request": {
+            "name": "List All Crew",
+            "description": {
+              "content": "Returns all SpaceX astronauts and crew members",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crew"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5db4d535-3fcf-4d8a-9ce7-61759a718bf4",
+              "name": "Array of crew member objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crew"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"status\": \"string\",\n    \"agency\": \"string\",\n    \"image\": \"http://DZtbZMkdGLrPuZYlKBvTLsmeLeyGbErl.fxhhgQp7Hj54A7pCXAjKt\",\n    \"wikipedia\": \"https://GxmrytJKLOdfWIUpoONg.qaNntNC0xsr.qWqGheagw,qO\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"status\": \"string\",\n    \"agency\": \"string\",\n    \"image\": \"http://xmnNOzWWm.rvzmchRMeuLmu2Sb0G9sLBjOyOg-QkM\",\n    \"wikipedia\": \"https://WVq.pyxw\",\n    \"launches\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b298f7e-d47b-474f-80bc-29cfca02f5fc",
+          "name": "Get Crew Member",
+          "request": {
+            "name": "Get Crew Member",
+            "description": {
+              "content": "Returns a single crew member by their unique ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "crew",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) Unique crew member identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "45d44216-389d-424d-88c2-1a8b16ef2747",
+              "name": "Crew member object",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "crew",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) Unique crew member identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"status\": \"string\",\n  \"agency\": \"string\",\n  \"image\": \"http://khkHLMaRSIuafnWzlOPhY.jdnBIEyJHfEGp.hlNbUR3yfBvsV4,gH1WC2ckoqexlLc1OAjsGm.5v4SDvYUOlK8NMpAB\",\n  \"wikipedia\": \"http://BHjrFBTWuiiDiobjACIvTtWe.bgXX7iVgAwDAN\",\n  \"launches\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spacexdata.com/v5",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1adb533e-98fa-49e8-9efd-a27d9a39ea3b",
+    "name": "SpaceX Capsules Crew API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.\n\nContact Support:\n Name: SpaceX API Community",
+      "type": "text/plain"
+    }
+  }
+}

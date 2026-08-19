@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SpaceX Capsules Starlink API",
+    "version": "5.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Starlink",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List All Starlink Satellites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/starlink"
+          },
+          "docs": "Returns all Starlink satellite constellation data including orbital parameters"
+        },
+        {
+          "info": {
+            "name": "Get Starlink Satellite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spacexdata.com/v5/starlink/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique Starlink satellite identifier"
+              }
+            ]
+          },
+          "docs": "Returns a single Starlink satellite by its unique ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
