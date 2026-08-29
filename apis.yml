@@ -6,6 +6,19 @@ description: >-
   cores, crew, launchpads, landing pads, payloads, and the Starlink satellite constellation. It offers endpoints for all
   past and upcoming launches, real-time mission data, and vehicle telemetry. No authentication is required.
 type: Index
+deliveryModel:
+  model: self-hosted
+  license: Apache-2.0
+  open_source: true
+  commercial: false
+  callable_host: true
+  label: Self-hosted open source · you run it yourself
+  confidence: high
+  source:
+  - license
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: open
@@ -326,6 +339,10 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
 common:
+  - type: IssueTracker
+    url: https://github.com/r-spacex/SpaceX-API/issues
+  - type: Releases
+    url: https://github.com/r-spacex/SpaceX-API/releases
   - type: License
     name: Apache-2.0
     url: https://github.com/r-spacex/SpaceX-API/blob/master/LICENSE
