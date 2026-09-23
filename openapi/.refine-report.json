@@ -1,17 +1,7 @@
 {
   "provider": "spacex-api",
   "sources": [
-    "spacex-api-capsules-api-openapi.yml",
-    "spacex-api-cores-api-openapi.yml",
-    "spacex-api-crew-api-openapi.yml",
-    "spacex-api-landing-pads-api-openapi.yml",
-    "spacex-api-launches-api-openapi.yml",
-    "spacex-api-launchpads-api-openapi.yml",
-    "spacex-api-payloads-api-openapi.yml",
-    "spacex-api-roadster-api-openapi.yml",
-    "spacex-api-rockets-api-openapi.yml",
-    "spacex-api-ships-api-openapi.yml",
-    "spacex-api-starlink-api-openapi.yml"
+    "_original/spacex-api-openapi.yml"
   ],
   "outputs": [
     "spacex-api-capsules-api-openapi.yml",
@@ -29,6 +19,22 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "spacex-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "spacex-api-capsules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spacex-api-cores-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spacex-api-crew-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spacex-api-landing-pads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spacex-api-launches-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spacex-api-launchpads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spacex-api-payloads-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spacex-api-roadster-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spacex-api-rockets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spacex-api-ships-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spacex-api-starlink-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

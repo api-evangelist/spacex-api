@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SpaceX Capsules Payloads API
+  title: SpaceX Payloads API
   description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
   version: 5.0.0
   contact:
@@ -90,24 +90,29 @@ components:
           items:
             type: string
         mass_kg:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: Payload mass in kilograms
         mass_lbs:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: Payload mass in pounds
         orbit:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Target orbit (LEO, GTO, ISS, SSO, etc.)
         reference_system:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Orbital reference system
         regime:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Orbital regime
 externalDocs:
   description: SpaceX API GitHub Repository

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SpaceX Capsules Crew API
+  title: SpaceX Crew API
   description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
   version: 5.0.0
   contact:

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SpaceX Capsules Launches API
+  title: SpaceX Launches API
   description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
   version: 5.0.0
   contact:
@@ -137,6 +137,26 @@ paths:
                 $ref: '#/components/schemas/QueryResult'
 components:
   schemas:
+    Fairings:
+      type: object
+      description: Payload fairing recovery details
+      properties:
+        reused:
+          type:
+          - boolean
+          - 'null'
+        recovery_attempt:
+          type:
+          - boolean
+          - 'null'
+        recovered:
+          type:
+          - boolean
+          - 'null'
+        ships:
+          type: array
+          items:
+            type: string
     Failure:
       type: object
       description: Launch failure record
@@ -145,12 +165,77 @@ components:
           type: integer
           description: Time of failure in seconds from launch
         altitude:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: Altitude at failure in kilometers
         reason:
           type: string
           description: Description of the failure cause
+    CoreDetail:
+      type: object
+      description: First stage booster core detail for a specific launch
+      properties:
+        core:
+          type:
+          - string
+          - 'null'
+          description: Core ID
+        flight:
+          type:
+          - integer
+          - 'null'
+          description: Which flight number this is for this core
+        gridfins:
+          type:
+          - boolean
+          - 'null'
+          description: Whether grid fins were used
+        legs:
+          type:
+          - boolean
+          - 'null'
+          description: Whether landing legs were deployed
+        reused:
+          type:
+          - boolean
+          - 'null'
+          description: Whether this core was previously flown
+        landing_attempt:
+          type:
+          - boolean
+          - 'null'
+          description: Whether a landing was attempted
+        landing_success:
+          type:
+          - boolean
+          - 'null'
+          description: Whether landing succeeded
+        landing_type:
+          type:
+          - string
+          - 'null'
+          description: Landing type (ASDS, RTLS, Ocean)
+          enum:
+          - ASDS
+          - RTLS
+          - Ocean
+        landpad:
+          type:
+          - string
+          - 'null'
+          description: Landing pad ID
+    CrewAssignment:
+      type: object
+      description: Crew member assignment for a launch
+      properties:
+        crew:
+          type: string
+          description: Crew member ID
+        role:
+          type: string
+          description: Role aboard the mission
+          example: Commander
     QueryResult:
       type: object
       description: Paginated query result
@@ -185,24 +270,15 @@ components:
           type: boolean
           description: Whether a next page exists
         prevPage:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: Previous page number
         nextPage:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: Next page number
-    CrewAssignment:
-      type: object
-      description: Crew member assignment for a launch
-      properties:
-        crew:
-          type: string
-          description: Crew member ID
-        role:
-          type: string
-          description: Role aboard the mission
-          example: Commander
     LaunchLinks:
       type: object
       description: Media and reference links for a launch
@@ -222,21 +298,25 @@ components:
           description: Reddit community thread links
           properties:
             campaign:
-              type: string
+              type:
+              - string
+              - 'null'
               format: uri
-              nullable: true
             launch:
-              type: string
+              type:
+              - string
+              - 'null'
               format: uri
-              nullable: true
             media:
-              type: string
+              type:
+              - string
+              - 'null'
               format: uri
-              nullable: true
             recovery:
-              type: string
+              type:
+              - string
+              - 'null'
               format: uri
-              nullable: true
         flickr:
           type: object
           description: Flickr photo links
@@ -252,73 +332,70 @@ components:
                 type: string
                 format: uri
         presskit:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
           description: Press kit PDF URL
         webcast:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
           description: Webcast stream URL
         youtube_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: YouTube video ID for the launch webcast
         article:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
           description: News article link
         wikipedia:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
           description: Wikipedia article link
-    CoreDetail:
+    QueryRequest:
       type: object
-      description: First stage booster core detail for a specific launch
+      description: MongoDB-style query request for paginated, filtered lookups
       properties:
-        core:
-          type: string
-          nullable: true
-          description: Core ID
-        flight:
-          type: integer
-          nullable: true
-          description: Which flight number this is for this core
-        gridfins:
-          type: boolean
-          nullable: true
-          description: Whether grid fins were used
-        legs:
-          type: boolean
-          nullable: true
-          description: Whether landing legs were deployed
-        reused:
-          type: boolean
-          nullable: true
-          description: Whether this core was previously flown
-        landing_attempt:
-          type: boolean
-          nullable: true
-          description: Whether a landing was attempted
-        landing_success:
-          type: boolean
-          nullable: true
-          description: Whether landing succeeded
-        landing_type:
-          type: string
-          nullable: true
-          description: Landing type (ASDS, RTLS, Ocean)
-          enum:
-          - ASDS
-          - RTLS
-          - Ocean
-        landpad:
-          type: string
-          nullable: true
-          description: Landing pad ID
+        query:
+          type: object
+          description: MongoDB query filter object
+          additionalProperties: true
+        options:
+          type: object
+          description: Query options for pagination and population
+          properties:
+            limit:
+              type: integer
+              description: Maximum number of results to return
+            offset:
+              type: integer
+              description: Number of results to skip
+            page:
+              type: integer
+              description: Page number for pagination
+            populate:
+              type: array
+              description: Fields to populate with referenced documents
+              items:
+                type: string
+            select:
+              type: object
+              description: Field projection (1 to include, 0 to exclude)
+              additionalProperties:
+                type: integer
+            sort:
+              type: object
+              description: Sort specification
+              additionalProperties:
+                type: integer
     Launch:
       type: object
       description: A SpaceX mission launch including all metadata, vehicle, and outcome data
@@ -363,13 +440,15 @@ components:
           description: Whether this is a future planned launch
           example: false
         success:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
           description: Whether the launch was successful (null if upcoming)
           example: true
         details:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Mission description or notes
         rocket:
           type: string
@@ -412,14 +491,14 @@ components:
         links:
           $ref: '#/components/schemas/LaunchLinks'
         fairings:
-          nullable: true
           $ref: '#/components/schemas/Fairings'
         net:
           type: boolean
           description: No Earlier Than flag — launch date is approximate
         window:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: Launch window duration in seconds
         auto_update:
           type: boolean
@@ -428,63 +507,11 @@ components:
           type: boolean
           description: To Be Determined — date or details are unconfirmed
         launch_library_id:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uuid
-          nullable: true
           description: Launch Library 2 reference ID
-    QueryRequest:
-      type: object
-      description: MongoDB-style query request for paginated, filtered lookups
-      properties:
-        query:
-          type: object
-          description: MongoDB query filter object
-          additionalProperties: true
-        options:
-          type: object
-          description: Query options for pagination and population
-          properties:
-            limit:
-              type: integer
-              description: Maximum number of results to return
-            offset:
-              type: integer
-              description: Number of results to skip
-            page:
-              type: integer
-              description: Page number for pagination
-            populate:
-              type: array
-              description: Fields to populate with referenced documents
-              items:
-                type: string
-            select:
-              type: object
-              description: Field projection (1 to include, 0 to exclude)
-              additionalProperties:
-                type: integer
-            sort:
-              type: object
-              description: Sort specification
-              additionalProperties:
-                type: integer
-    Fairings:
-      type: object
-      description: Payload fairing recovery details
-      properties:
-        reused:
-          type: boolean
-          nullable: true
-        recovery_attempt:
-          type: boolean
-          nullable: true
-        recovered:
-          type: boolean
-          nullable: true
-        ships:
-          type: array
-          items:
-            type: string
 externalDocs:
   description: SpaceX API GitHub Repository
   url: https://github.com/r-spacex/SpaceX-API

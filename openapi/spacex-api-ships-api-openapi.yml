@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SpaceX Capsules Ships API
+  title: SpaceX Ships API
   description: The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and the Starlink satellite constellation. It covers all past and upcoming launches with detailed mission data. No authentication is required.
   version: 5.0.0
   contact:
@@ -66,12 +66,14 @@ components:
           type: string
           description: Ship name
         legacy_id:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Legacy identifier from previous API versions
         model:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Ship model/class
         type:
           type: string
@@ -85,65 +87,79 @@ components:
           type: boolean
           description: Whether ship is currently active
         imo:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: IMO vessel number
         mmsi:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: MMSI maritime identifier
         abs:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: ABS vessel number
         class:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: Ship class code
         mass_kg:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: Ship mass in kilograms
         mass_lbs:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: Ship mass in pounds
         year_built:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           description: Year the ship was built
         home_port:
           type: string
           description: Home port location
         status:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           description: Current operational status
         speed_kn:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: Current speed in knots
         course_deg:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: Current course in degrees
         latitude:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: Current latitude
         longitude:
-          type: number
-          nullable: true
+          type:
+          - number
+          - 'null'
           description: Current longitude
         link:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
           description: MarineTraffic or vessel tracking link
         image:
-          type: string
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
           description: Ship image URL
         launches:
           type: array
