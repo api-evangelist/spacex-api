@@ -137,6 +137,140 @@ paths:
                 $ref: '#/components/schemas/QueryResult'
 components:
   schemas:
+    LaunchLinks:
+      type: object
+      description: Media and reference links for a launch
+      properties:
+        patch:
+          type: object
+          description: Mission patch image URLs
+          properties:
+            small:
+              type: string
+              format: uri
+            large:
+              type: string
+              format: uri
+        reddit:
+          type: object
+          description: Reddit community thread links
+          properties:
+            campaign:
+              type:
+              - string
+              - 'null'
+              format: uri
+            launch:
+              type:
+              - string
+              - 'null'
+              format: uri
+            media:
+              type:
+              - string
+              - 'null'
+              format: uri
+            recovery:
+              type:
+              - string
+              - 'null'
+              format: uri
+        flickr:
+          type: object
+          description: Flickr photo links
+          properties:
+            small:
+              type: array
+              items:
+                type: string
+                format: uri
+            original:
+              type: array
+              items:
+                type: string
+                format: uri
+        presskit:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: Press kit PDF URL
+        webcast:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: Webcast stream URL
+        youtube_id:
+          type:
+          - string
+          - 'null'
+          description: YouTube video ID for the launch webcast
+        article:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: News article link
+        wikipedia:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: Wikipedia article link
+    CoreDetail:
+      type: object
+      description: First stage booster core detail for a specific launch
+      properties:
+        core:
+          type:
+          - string
+          - 'null'
+          description: Core ID
+        flight:
+          type:
+          - integer
+          - 'null'
+          description: Which flight number this is for this core
+        gridfins:
+          type:
+          - boolean
+          - 'null'
+          description: Whether grid fins were used
+        legs:
+          type:
+          - boolean
+          - 'null'
+          description: Whether landing legs were deployed
+        reused:
+          type:
+          - boolean
+          - 'null'
+          description: Whether this core was previously flown
+        landing_attempt:
+          type:
+          - boolean
+          - 'null'
+          description: Whether a landing was attempted
+        landing_success:
+          type:
+          - boolean
+          - 'null'
+          description: Whether landing succeeded
+        landing_type:
+          type:
+          - string
+          - 'null'
+          description: Landing type (ASDS, RTLS, Ocean)
+          enum:
+          - ASDS
+          - RTLS
+          - Ocean
+        landpad:
+          type:
+          - string
+          - 'null'
+          description: Landing pad ID
     Fairings:
       type: object
       description: Payload fairing recovery details
@@ -157,6 +291,17 @@ components:
           type: array
           items:
             type: string
+    CrewAssignment:
+      type: object
+      description: Crew member assignment for a launch
+      properties:
+        crew:
+          type: string
+          description: Crew member ID
+        role:
+          type: string
+          description: Role aboard the mission
+          example: Commander
     QueryResult:
       type: object
       description: Paginated query result
@@ -200,21 +345,6 @@ components:
           - integer
           - 'null'
           description: Next page number
-    Failure:
-      type: object
-      description: Launch failure record
-      properties:
-        time:
-          type: integer
-          description: Time of failure in seconds from launch
-        altitude:
-          type:
-          - integer
-          - 'null'
-          description: Altitude at failure in kilometers
-        reason:
-          type: string
-          description: Description of the failure cause
     Launch:
       type: object
       description: A SpaceX mission launch including all metadata, vehicle, and outcome data
@@ -331,70 +461,6 @@ components:
           - 'null'
           format: uuid
           description: Launch Library 2 reference ID
-    CrewAssignment:
-      type: object
-      description: Crew member assignment for a launch
-      properties:
-        crew:
-          type: string
-          description: Crew member ID
-        role:
-          type: string
-          description: Role aboard the mission
-          example: Commander
-    CoreDetail:
-      type: object
-      description: First stage booster core detail for a specific launch
-      properties:
-        core:
-          type:
-          - string
-          - 'null'
-          description: Core ID
-        flight:
-          type:
-          - integer
-          - 'null'
-          description: Which flight number this is for this core
-        gridfins:
-          type:
-          - boolean
-          - 'null'
-          description: Whether grid fins were used
-        legs:
-          type:
-          - boolean
-          - 'null'
-          description: Whether landing legs were deployed
-        reused:
-          type:
-          - boolean
-          - 'null'
-          description: Whether this core was previously flown
-        landing_attempt:
-          type:
-          - boolean
-          - 'null'
-          description: Whether a landing was attempted
-        landing_success:
-          type:
-          - boolean
-          - 'null'
-          description: Whether landing succeeded
-        landing_type:
-          type:
-          - string
-          - 'null'
-          description: Landing type (ASDS, RTLS, Ocean)
-          enum:
-          - ASDS
-          - RTLS
-          - Ocean
-        landpad:
-          type:
-          - string
-          - 'null'
-          description: Landing pad ID
     QueryRequest:
       type: object
       description: MongoDB-style query request for paginated, filtered lookups
@@ -431,87 +497,21 @@ components:
               description: Sort specification
               additionalProperties:
                 type: integer
-    LaunchLinks:
+    Failure:
       type: object
-      description: Media and reference links for a launch
+      description: Launch failure record
       properties:
-        patch:
-          type: object
-          description: Mission patch image URLs
-          properties:
-            small:
-              type: string
-              format: uri
-            large:
-              type: string
-              format: uri
-        reddit:
-          type: object
-          description: Reddit community thread links
-          properties:
-            campaign:
-              type:
-              - string
-              - 'null'
-              format: uri
-            launch:
-              type:
-              - string
-              - 'null'
-              format: uri
-            media:
-              type:
-              - string
-              - 'null'
-              format: uri
-            recovery:
-              type:
-              - string
-              - 'null'
-              format: uri
-        flickr:
-          type: object
-          description: Flickr photo links
-          properties:
-            small:
-              type: array
-              items:
-                type: string
-                format: uri
-            original:
-              type: array
-              items:
-                type: string
-                format: uri
-        presskit:
+        time:
+          type: integer
+          description: Time of failure in seconds from launch
+        altitude:
           type:
-          - string
+          - integer
           - 'null'
-          format: uri
-          description: Press kit PDF URL
-        webcast:
-          type:
-          - string
-          - 'null'
-          format: uri
-          description: Webcast stream URL
-        youtube_id:
-          type:
-          - string
-          - 'null'
-          description: YouTube video ID for the launch webcast
-        article:
-          type:
-          - string
-          - 'null'
-          format: uri
-          description: News article link
-        wikipedia:
-          type:
-          - string
-          - 'null'
-          format: uri
-          description: Wikipedia article link
+          description: Altitude at failure in kilometers
+        reason:
+          type: string
+          description: Description of the failure cause
 externalDocs:
   description: SpaceX API GitHub Repository
   url: https://github.com/r-spacex/SpaceX-API
