@@ -339,6 +339,12 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml
 common:
+  - type: Plans
+    url: plans/spacex-api-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/spacex-api-rate-limits.yml
+  - type: FinOps
+    url: finops/spacex-api-finops.yml
   - url: https://www.spacex.com/blog/
     type: Blog
   - type: IssueTracker
