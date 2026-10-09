@@ -1,19 +1,101 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/spacex-api-openapi.yml
+source: openapi/spacex-api-capsules-api-openapi.yml, openapi/spacex-api-cores-api-openapi.yml,
+  openapi/spacex-api-crew-api-openapi.yml, openapi/spacex-api-landing-pads-api-openapi.yml,
+  openapi/spacex-api-launches-api-openapi.yml, openapi/spacex-api-launchpads-api-openapi.yml,
+  openapi/spacex-api-payloads-api-openapi.yml, openapi/spacex-api-roadster-api-openapi.yml,
+  openapi/spacex-api-rockets-api-openapi.yml, openapi/spacex-api-ships-api-openapi.yml, openapi/spacex-api-starlink-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 26
   by_action_class:
-    connected: 25
-    acting: 1
+    connected: 26
   by_consequence:
-    read: 25
-    write: 1
+    read: 26
   human_in_the_loop_required: 0
 operations:
+- path: /capsules
+  method: get
+  operationId: listCapsules
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /capsules/{id}
+  method: get
+  operationId: getCapsule
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /cores
+  method: get
+  operationId: listCores
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /cores/{id}
+  method: get
+  operationId: getCore
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /crew
+  method: get
+  operationId: listCrew
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /crew/{id}
+  method: get
+  operationId: getCrewMember
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /landpads
+  method: get
+  operationId: listLandpads
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /landpads/{id}
+  method: get
+  operationId: getLandpad
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /launches
   method: get
   operationId: listLaunches
@@ -78,92 +160,6 @@ operations:
   method: post
   operationId: queryLaunches
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /rockets
-  method: get
-  operationId: listRockets
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /rockets/{id}
-  method: get
-  operationId: getRocket
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /capsules
-  method: get
-  operationId: listCapsules
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /capsules/{id}
-  method: get
-  operationId: getCapsule
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /cores
-  method: get
-  operationId: listCores
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /cores/{id}
-  method: get
-  operationId: getCore
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /crew
-  method: get
-  operationId: listCrew
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /crew/{id}
-  method: get
-  operationId: getCrewMember
-  x-agentic-access:
     action-class: connected
     consequence: read
     subject: optional
@@ -190,26 +186,6 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /landpads
-  method: get
-  operationId: listLandpads
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /landpads/{id}
-  method: get
-  operationId: getLandpad
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /payloads
   method: get
   operationId: listPayloads
@@ -223,6 +199,36 @@ operations:
 - path: /payloads/{id}
   method: get
   operationId: getPayload
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /roadster
+  method: get
+  operationId: getRoadster
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rockets
+  method: get
+  operationId: listRockets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /rockets/{id}
+  method: get
+  operationId: getRocket
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -263,16 +269,6 @@ operations:
 - path: /starlink/{id}
   method: get
   operationId: getStarlinkSatellite
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /roadster
-  method: get
-  operationId: getRoadster
   x-agentic-access:
     action-class: connected
     consequence: read
