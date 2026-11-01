@@ -1,4 +1,4 @@
-# SpaceX API (spacex-api)
+# SpaceX API
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,60 +66,172 @@
 
 The SpaceX API is an open-source REST API providing comprehensive data about SpaceX missions, rockets, capsules, cores, crew, launchpads, landing pads, payloads, and the Starlink satellite constellation. It offers endpoints for all past and upcoming launches, real-time mission data, and vehicle telemetry. No authentication is required.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/apis.yml)
+**Areas:** Space · Aerospace · Launches · SpaceX
 
-## Scope
+## SpaceX API on APIs.io
 
-- **Type:** Index
+Everything profiled for SpaceX API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/spacex-api/](https://apis.io/providers/spacex-api/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (11)
 
-- Space
-- Aerospace
-- Launches
-- SpaceX
+- [SpaceX API Capsules API](https://apis.io/apis/spacex-api/spacex-api-capsules-api/) — SpaceX Dragon capsule data
+- [SpaceX API Cores API](https://apis.io/apis/spacex-api/spacex-api-cores-api/) — SpaceX first stage booster core data
+- [SpaceX API Crew API](https://apis.io/apis/spacex-api/spacex-api-crew-api/) — SpaceX astronaut crew data
+- [SpaceX API Landing Pads API](https://apis.io/apis/spacex-api/spacex-api-landing-pads-api/) — SpaceX landing pad data
+- [SpaceX API Launches API](https://apis.io/apis/spacex-api/spacex-api-launches-api/) — SpaceX mission launch data
+- [SpaceX API Launchpads API](https://apis.io/apis/spacex-api/spacex-api-launchpads-api/) — SpaceX launch site data
+- [SpaceX API Payloads API](https://apis.io/apis/spacex-api/spacex-api-payloads-api/) — SpaceX payload data
+- [SpaceX API Roadster API](https://apis.io/apis/spacex-api/spacex-api-roadster-api/) — SpaceX Roadster tracking data
+- [SpaceX API Rockets API](https://apis.io/apis/spacex-api/spacex-api-rockets-api/) — SpaceX rocket vehicle data
+- [SpaceX API Ships API](https://apis.io/apis/spacex-api/spacex-api-ships-api/) — SpaceX fleet ship data
+- [SpaceX API Starlink API](https://apis.io/apis/spacex-api/spacex-api-starlink-api/) — SpaceX Starlink satellite data
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-11-07
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### SpaceX API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Open-source REST API providing data on SpaceX launches, rockets, capsules, cores, crew, launchpads, landing pads, payloads, ships, and Starlink satellites. Supports query, pagination, and population of linked entity IDs. No authentication required.
+- [Spacex Api Agentic Access](https://apis.io/agentic-access/spacex-api/spacex-api-agentic-access/)
 
-- **Human URL:** [https://github.com/r-spacex/SpaceX-API](https://github.com/r-spacex/SpaceX-API)
-- **Base URL:** `https://api.spacexdata.com/v5`
+#### JSON Schema (1)
 
-#### Tags
+The data models the API reads and writes.
 
-- Space
-- Aerospace
-- Launches
-- SpaceX
+- [SpaceX Launch](https://apis.io/schemas/spacex-api/spacex-api-launch/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [GitHub Repository](https://github.com/r-spacex/SpaceX-API)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/openapi/spacex-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/rules/spacex-api-rules.yml)
-- [JSON Schema](https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-schema/spacex-api-launch-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-structure/spacex-api-launch-structure.json)
-- [J S O N L D Context](https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/json-ld/spacex-api-context.jsonld)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/spacex-api/refs/heads/main/vocabulary/spacex-api-vocabulary.yml)
-- [Postman Collection](collections/spacex-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/spacex-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Data models expressed in JSON Structure.
 
-## Common Properties
+- [Spacex Api Launch Structure](https://apis.io/json-structure/spacex-api/spacex-api-launch-structure/)
 
-- [LinkedIn](https://www.linkedin.com/company/spacex)
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Spacex Api Context](https://apis.io/jsonld/spacex-api/spacex-api-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [SpaceX API Vocabulary](https://apis.io/vocabularies/spacex-api/spacex-api-vocabulary/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Spacex Api List Launches Example](https://apis.io/examples/spacex-api/spacex-api-list-launches-example/)
+
+#### Collections (12)
+
+Postman and Open Collection request collections.
+
+- [SpaceX API](https://apis.io/collections/spacex-api/open-spacex-api/)
+- [SpaceX Capsules API](https://apis.io/collections/spacex-api/open-spacex-api-capsules-api/)
+- [SpaceX Capsules Cores API](https://apis.io/collections/spacex-api/open-spacex-api-cores-api/)
+- [SpaceX Capsules Crew API](https://apis.io/collections/spacex-api/open-spacex-api-crew-api/)
+- [SpaceX Capsules Landing Pads API](https://apis.io/collections/spacex-api/open-spacex-api-landing-pads-api/)
+- [SpaceX Capsules Launches API](https://apis.io/collections/spacex-api/open-spacex-api-launches-api/)
+- [SpaceX Capsules Launchpads API](https://apis.io/collections/spacex-api/open-spacex-api-launchpads-api/)
+- [SpaceX Capsules Payloads API](https://apis.io/collections/spacex-api/open-spacex-api-payloads-api/)
+- [SpaceX Capsules Roadster API](https://apis.io/collections/spacex-api/open-spacex-api-roadster-api/)
+- [SpaceX Capsules Rockets API](https://apis.io/collections/spacex-api/open-spacex-api-rockets-api/)
+- [SpaceX Capsules Ships API](https://apis.io/collections/spacex-api/open-spacex-api-ships-api/)
+- [SpaceX Capsules Starlink API](https://apis.io/collections/spacex-api/open-spacex-api-starlink-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [SpaceX API — jsonschema rules](https://apis.io/rules/spacex-api/spacex-api-jsonschema-spectral-rules/)
+- [SpaceX API API Rules](https://apis.io/rules/spacex-api/spacex-api-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Spacex Api Domain Security](https://apis.io/security/spacex-api/spacex-api-domain-security/)
+- [Spacex Api Vulnerability Disclosure](https://apis.io/security/spacex-api/spacex-api-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Spacex Api Plans Pricing](https://apis.io/plans/spacex-api/spacex-api-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Spacex Api Rate Limits](https://apis.io/rate-limits/spacex-api/spacex-api-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Spacex Api Finops](https://apis.io/finops/spacex-api/spacex-api-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.spacex.com)
-- [Git Hub](https://github.com/r-spacex/SpaceX-API)
 - [Documentation](https://github.com/r-spacex/SpaceX-API/blob/master/docs/v5/README.md)
+- [Blog](https://www.spacex.com/blog/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 28.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 55.0 |
+| Contract governance | 23.5 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 2.4 |
+| Access clarity | 7.9 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/spacex-api/](https://apis.io/providers/spacex-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for SpaceX API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/spacex-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
